@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#8b1e1e">
 
-<title>Autentitako | Menú Digital</title>
+<title>Autentitako - Menú Digital</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -20,23 +20,23 @@ html{
 body{
   margin:0;
   background:#f6efe5;
-  color:#291b15;
-  font-family:Arial,sans-serif;
+  color:#281914;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 header{
   background:#8b1e1e;
   color:white;
   text-align:center;
-  padding:20px 15px;
+  padding:18px 12px;
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 3px 10px #0004;
+  box-shadow:0 3px 12px #0005;
 }
 
 .logo{
-  font-size:30px;
+  font-size:31px;
   font-weight:900;
 }
 
@@ -57,7 +57,7 @@ main{
   text-align:center;
   margin-bottom:20px;
   font-size:18px;
-  box-shadow:0 2px 7px #0002;
+  box-shadow:0 2px 8px #0002;
 }
 
 h2{
@@ -67,7 +67,7 @@ h2{
 
 .producto{
   background:white;
-  border-radius:13px;
+  border-radius:14px;
   padding:13px;
   margin:9px 0;
   display:flex;
@@ -83,66 +83,95 @@ h2{
 
 .precio{
   display:block;
+  margin-top:5px;
   font-size:19px;
   font-weight:bold;
-  margin-top:5px;
 }
 
 .agregar{
+  border:0;
   background:#159447;
   color:white;
-  border:0;
-  border-radius:9px;
   padding:10px 13px;
+  border-radius:9px;
   font-size:15px;
   font-weight:bold;
 }
 
 .agregar:active{
-  transform:scale(.96);
+  transform:scale(.95);
 }
 
-/* BOTÓN FLOTANTE */
+.info{
+  background:#8b1e1e;
+  color:white;
+  padding:17px;
+  border-radius:15px;
+  margin:25px 0;
+}
 
 .carrito-flotante{
   position:fixed;
   right:16px;
   bottom:18px;
-  width:62px;
-  height:62px;
+  width:64px;
+  height:64px;
   border-radius:50%;
+  border:4px solid white;
   background:#159447;
   color:white;
-  border:4px solid white;
-  box-shadow:0 4px 15px #0005;
-  z-index:200;
-  font-size:25px;
-  font-weight:bold;
+  font-size:26px;
+  z-index:300;
+  box-shadow:0 4px 16px #0006;
 }
 
 .contador{
   position:absolute;
-  right:-4px;
   top:-5px;
-  background:#e53935;
-  color:white;
+  right:-5px;
+  min-width:25px;
+  height:25px;
+  padding:2px;
   border-radius:50%;
-  min-width:24px;
-  height:24px;
-  font-size:13px;
+  background:#e53935;
   display:flex;
   justify-content:center;
   align-items:center;
+  font-size:13px;
+  font-weight:bold;
 }
 
-/* CARRITO */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:400;
+}
+
+.oculto{
+  display:none;
+}
+
+.carrito-panel{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  max-height:92vh;
+  overflow-y:auto;
+  background:#f6efe5;
+  border-radius:20px 20px 0 0;
+  z-index:500;
+  padding:14px;
+  box-shadow:0 -5px 25px #0006;
+}
 
 .carrito{
+  max-width:700px;
+  margin:auto;
   background:white;
-  border-radius:17px;
-  padding:17px;
-  margin-top:30px;
-  box-shadow:0 3px 12px #0003;
+  padding:16px;
+  border-radius:16px;
 }
 
 .carrito-titulo{
@@ -151,19 +180,25 @@ h2{
   align-items:center;
 }
 
+.carrito-titulo h2{
+  margin:5px 0 15px;
+}
+
 .cerrar{
+  border:0;
   background:#8b1e1e;
   color:white;
-  border:0;
   border-radius:8px;
-  padding:8px 12px;
+  padding:9px 12px;
+  font-size:18px;
 }
 
 .carrito-item{
   border-bottom:1px solid #ddd;
-  padding:11px 0;
+  padding:12px 0;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:8px;
 }
 
@@ -172,34 +207,75 @@ h2{
 }
 
 .cantidad button{
-  background:#eee;
-  color:#222;
   border:0;
+  background:#eee;
   border-radius:6px;
-  padding:5px 9px;
-  font-size:16px;
+  padding:6px 10px;
+  font-size:17px;
+}
+
+.vacio{
+  text-align:center;
+  padding:18px;
+  color:#777;
 }
 
 .total{
   font-size:20px;
   font-weight:bold;
-  line-height:1.6;
+  line-height:1.7;
   margin-top:15px;
 }
 
-select,
+label{
+  display:block;
+  margin-top:12px;
+  font-weight:bold;
+}
+
 input{
   width:100%;
   padding:12px;
-  margin-top:7px;
-  margin-bottom:12px;
+  margin-top:6px;
   border:1px solid #ccc;
   border-radius:9px;
   font-size:16px;
 }
 
+.ubicacion{
+  width:100%;
+  border:0;
+  border-radius:10px;
+  padding:13px;
+  background:#1769aa;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.ubicacion:disabled{
+  opacity:.7;
+}
+
+.estado{
+  background:#eef6ff;
+  padding:11px;
+  border-radius:9px;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.envio{
+  background:#fff3cd;
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+}
+
 .whatsapp{
   display:block;
+  width:100%;
   background:#159447;
   color:white;
   text-decoration:none;
@@ -210,223 +286,289 @@ input{
   margin-top:15px;
 }
 
-.vacio{
-  text-align:center;
-  color:#777;
-  padding:15px;
-}
-
-.info{
-  background:#8b1e1e;
-  color:white;
-  padding:16px;
-  border-radius:14px;
-  margin-top:25px;
-  margin-bottom:30px;
-}
-
 .nota{
-  background:#fff3cd;
-  padding:12px;
-  border-radius:10px;
-  margin-top:10px;
-  font-size:14px;
+  background:#f1f1f1;
+  padding:11px;
+  border-radius:9px;
+  margin-top:12px;
+  font-size:13px;
+  color:#555;
 }
 
-.oculto{
-  display:none;
+footer{
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:150;
-}
-
-.carrito-panel{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  max-height:90vh;
-  overflow-y:auto;
-  background:#f6efe5;
-  border-radius:20px 20px 0 0;
-  z-index:160;
-  padding:15px;
-  box-shadow:0 -4px 20px #0005;
-}
-
-@media(min-width:700px){
-  .carrito-panel{
-    max-width:650px;
-    left:50%;
-    transform:translateX(-50%);
-  }
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">🌮 AUTENTITAKO</div>
-  <p>El verdadero sabor del trompo</p>
+
+<div class="logo">
+🌮 AUTENTITAKO
+</div>
+
+<p>
+El verdadero sabor del trompo
+</p>
+
 </header>
+
 
 <main>
 
 <div class="promo">
-  🔥 <strong>Promoción: 12 tacos de pastor $150</strong>
-  <br>
-  Arma tu pedido y envíalo directamente por WhatsApp.
+
+🔥 <strong>Promoción 12 tacos de pastor $150</strong>
+
+<br>
+
+Arma tu pedido y envíalo directamente por WhatsApp.
+
 </div>
+
 
 <div id="menu"></div>
 
+
 <div class="info">
-  📲 <strong>Pedidos por WhatsApp</strong><br>
-  814 950 6908
-  <br><br>
-  📍 Servicio en Torreón, Gómez Palacio y Lerdo
+
+📲 <strong>Pedidos por WhatsApp</strong>
+
+<br>
+
+814 950 6908
+
+<br><br>
+
+📍 Av. Universidad #894,
+casi esquina con Av. de la Viña,
+Col. Joyas del Bosque.
+
+<br><br>
+
+🚚 Servicio a domicilio.
+
 </div>
 
 </main>
 
 
-<!-- BOTÓN CARRITO -->
+<button
+class="carrito-flotante"
+onclick="abrirCarrito()">
 
-<button class="carrito-flotante" onclick="abrirCarrito()">
-  🛒
-  <span class="contador" id="contador">0</span>
+🛒
+
+<span
+id="contador"
+class="contador">
+
+0
+
+</span>
+
 </button>
 
 
-<!-- FONDO -->
-
-<div id="overlay"
-     class="overlay oculto"
-     onclick="cerrarCarrito()">
+<div
+id="overlay"
+class="overlay oculto"
+onclick="cerrarCarrito()">
 </div>
 
 
-<!-- PANEL DEL CARRITO -->
+<div
+id="panelCarrito"
+class="carrito-panel oculto">
 
-<div id="panelCarrito"
-     class="carrito-panel oculto">
 
 <div class="carrito">
 
 <div class="carrito-titulo">
-<h2>🛒 Mi pedido</h2>
 
-<button class="cerrar"
-        onclick="cerrarCarrito()">
+<h2>
+🛒 Mi pedido
+</h2>
+
+<button
+class="cerrar"
+onclick="cerrarCarrito()">
+
 ✕
+
 </button>
 
 </div>
 
+
 <div id="carrito">
+
 <div class="vacio">
-Tu carrito está vacío.
+
+🛒 Tu carrito está vacío.
+
 </div>
+
 </div>
+
 
 <hr>
 
-<h3>📍 Datos para entrega</h3>
+
+<h3>
+📍 Datos para la entrega
+</h3>
+
 
 <label>
-<strong>Nombre:</strong>
+Nombre
 </label>
 
 <input
 id="nombre"
 type="text"
-placeholder="Tu nombre"
-oninput="actualizarWhatsApp()"
+placeholder="Escribe tu nombre"
+oninput="actualizarPedido()"
 >
 
 
 <label>
-<strong>Dirección:</strong>
+Dirección
 </label>
 
 <input
 id="direccion"
 type="text"
 placeholder="Calle, número y colonia"
-oninput="actualizarWhatsApp()"
+oninput="actualizarPedido()"
 >
 
 
 <label>
-<strong>Distancia de entrega:</strong>
+Referencias
 </label>
 
-<select
-id="kilometros"
-onchange="mostrarPedido()">
+<input
+id="referencias"
+type="text"
+placeholder="Casa, color, entre calles, etc."
+oninput="actualizarPedido()"
+>
 
-<option value="0">
-Selecciona kilómetros
-</option>
 
-<option value="25">
-0–3 km — $25
-</option>
+<button
+id="botonUbicacion"
+class="ubicacion"
+onclick="obtenerUbicacion()">
 
-<option value="40">
-4–6 km — $40
-</option>
+📍 CALCULAR MI ENVÍO AUTOMÁTICAMENTE
 
-<option value="55">
-7–10 km — $55
-</option>
+</button>
 
-<option value="80">
-11–15 km — $80
-</option>
 
-<option value="95">
-16–20 km — $95
-</option>
+<div
+id="estadoUbicacion"
+class="estado">
 
-</select>
+📍 Aún no se ha calculado la ubicación.
+
+</div>
+
+
+<div
+id="envioInfo"
+class="envio">
+
+🚚 Selecciona tu ubicación para calcular el envío.
+
+</div>
 
 
 <div id="total"></div>
 
+
 <div id="botonWhatsApp"></div>
 
+
 <div class="nota">
-🚚 El costo de envío se calcula según la distancia seleccionada.
-</div>
+
+Para calcular automáticamente el envío,
+el cliente debe permitir el acceso a la ubicación
+de su teléfono.
+
+<br><br>
+
+La distancia se calcula como aproximación de ruta.
+El costo se aplica según la tabla de servicio a domicilio.
 
 </div>
 
 </div>
+
+</div>
+
+
+<footer>
+
+🌮 AUTENTITAKO
+
+<br>
+
+Pedidos por WhatsApp:
+814 950 6908
+
+</footer>
 
 
 <script>
 
-/* =====================================
+
+/* ==================================================
+   CONFIGURACIÓN
+================================================== */
+
+
+/*
+   UBICACIÓN DEL NEGOCIO
+
+   El sistema primero intenta localizar automáticamente
+   la dirección de la taquería usando OpenStreetMap.
+
+   Dirección:
+   Av. Universidad #894,
+   Joyas del Bosque, Torreón, Coahuila, México
+*/
+
+
+const DIRECCION_NEGOCIO =
+"Av. Universidad 894, Joyas del Bosque, Torreón, Coahuila, México";
+
+
+const WHATSAPP =
+"528149506908";
+
+
+/* ==================================================
    PRODUCTOS
-===================================== */
+================================================== */
 
 const productos = [
 
 {
 categoria:"🌮 Pastor / Trompo",
+
 items:[
 
-["Orden c/4 tacos",75],
+["Orden c/4 tacos de trompo",75],
 
-["Taco de pastor",25],
+["Taco de trompo",25],
 
-["Promoción 12 tacos",150],
+["Promoción c/12 tacos",150],
 
 ["Kilo de carne de trompo",450],
 
@@ -436,11 +578,11 @@ items:[
 
 ["Orden de gringas c/3",120],
 
-["Gringa",45],
+["Gringa de trompo",45],
 
 ["Alambre de trompo",250],
 
-["½ platillo de alambre",160]
+["½ platillo de alambre de trompo",160]
 
 ]
 },
@@ -448,9 +590,10 @@ items:[
 
 {
 categoria:"🥩 Bistec de Res",
+
 items:[
 
-["Orden c/4 tacos",95],
+["Orden c/4 tacos de bistec",95],
 
 ["Taco de bistec",25],
 
@@ -470,6 +613,7 @@ items:[
 
 {
 categoria:"🍔 Hamburguesas",
+
 items:[
 
 ["Hamburguesa Especial",95],
@@ -486,6 +630,7 @@ items:[
 
 {
 categoria:"🍟 Papas",
+
 items:[
 
 ["Papas a la francesa sencillas",40],
@@ -498,6 +643,7 @@ items:[
 
 {
 categoria:"🥤 Bebidas",
+
 items:[
 
 ["Agua de jamaica 1 L",35],
@@ -516,14 +662,65 @@ items:[
 
 let carrito=[];
 
+let ubicacionCliente=null;
 
-/* =====================================
+let distanciaKm=null;
+
+let costoEnvio=0;
+
+let coordenadasNegocio=null;
+
+
+/* ==================================================
+   TABULADOR DE ENVÍO
+================================================== */
+
+function calcularCostoEnvio(km){
+
+if(km <= 3){
+
+return 25;
+
+}
+
+if(km <= 6){
+
+return 40;
+
+}
+
+if(km <= 10){
+
+return 55;
+
+}
+
+if(km <= 15){
+
+return 80;
+
+}
+
+if(km <= 20){
+
+return 95;
+
+}
+
+return null;
+
+}
+
+
+/* ==================================================
    CREAR MENÚ
-===================================== */
+================================================== */
 
 function crearMenu(){
 
-const menu=document.getElementById("menu");
+const menu=
+document.getElementById("menu");
+
 
 productos.forEach(categoria=>{
 
@@ -552,7 +749,6 @@ $${precio}
 
 </div>
 
-
 <button
 class="agregar"
 onclick='agregarProducto(${JSON.stringify(nombre)},${precio})'>
@@ -572,15 +768,15 @@ Agregar
 }
 
 
-/* =====================================
-   AGREGAR PRODUCTO
-===================================== */
+/* ==================================================
+   AGREGAR
+================================================== */
 
 function agregarProducto(nombre,precio){
 
 const existente=
 carrito.find(
-producto=>producto.nombre===nombre
+p=>p.nombre===nombre
 );
 
 
@@ -603,49 +799,50 @@ cantidad:1
 }
 
 
-mostrarPedido();
-
 actualizarContador();
+
+mostrarPedido();
 
 abrirCarrito();
 
 }
 
 
-/* =====================================
+/* ==================================================
    CAMBIAR CANTIDAD
-===================================== */
+================================================== */
 
 function cambiarCantidad(indice,cambio){
 
 carrito[indice].cantidad += cambio;
 
 
-if(carrito[indice].cantidad<=0){
+if(carrito[indice].cantidad <= 0){
 
 carrito.splice(indice,1);
 
 }
 
 
-mostrarPedido();
-
 actualizarContador();
+
+mostrarPedido();
 
 }
 
 
-/* =====================================
+/* ==================================================
    CONTADOR
-===================================== */
+================================================== */
 
 function actualizarContador(){
 
 let cantidad=0;
 
-carrito.forEach(producto=>{
 
-cantidad+=producto.cantidad;
+carrito.forEach(p=>{
+
+cantidad+=p.cantidad;
 
 });
 
@@ -656,9 +853,9 @@ document.getElementById("contador")
 }
 
 
-/* =====================================
-   ABRIR CARRITO
-===================================== */
+/* ==================================================
+   CARRITO
+================================================== */
 
 function abrirCarrito(){
 
@@ -679,10 +876,6 @@ mostrarPedido();
 }
 
 
-/* =====================================
-   CERRAR CARRITO
-===================================== */
-
 function cerrarCarrito(){
 
 document
@@ -699,9 +892,9 @@ document
 }
 
 
-/* =====================================
+/* ==================================================
    MOSTRAR PEDIDO
-===================================== */
+================================================== */
 
 function mostrarPedido(){
 
@@ -714,14 +907,11 @@ if(carrito.length===0){
 contenedor.innerHTML=
 '<div class="vacio">🛒 Tu carrito está vacío.</div>';
 
-
 document.getElementById("total")
 .innerHTML="";
 
-
 document.getElementById("botonWhatsApp")
 .innerHTML="";
-
 
 return;
 
@@ -729,6 +919,7 @@ return;
 
 
 let subtotal=0;
+
 
 contenedor.innerHTML="";
 
@@ -784,14 +975,31 @@ onclick="cambiarCantidad(${indice},1)">
 });
 
 
-const envio=
-Number(
-document.getElementById("kilometros").value
-)||0;
+let envioTexto="Pendiente";
+
+if(distanciaKm!==null){
+
+if(costoEnvio!==null){
+
+envioTexto="$"+costoEnvio;
+
+}else{
+
+envioTexto="Fuera de zona";
+
+}
+
+}
 
 
-const total=
-subtotal+envio;
+let total=0;
+
+
+if(costoEnvio!==null){
+
+total=subtotal+costoEnvio;
+
+}
 
 
 document.getElementById("total")
@@ -803,27 +1011,392 @@ Subtotal: $${subtotal}
 
 <br>
 
-Envío: $${envio}
+Envío: ${envioTexto}
 
 <br>
 
-💰 TOTAL: $${total}
+${
+distanciaKm!==null && costoEnvio!==null
+? "💰 TOTAL: $"+total
+: "💰 TOTAL: pendiente"
+}
 
 </div>
 
 `;
 
 
-actualizarWhatsApp();
+actualizarPedido();
 
 }
 
 
-/* =====================================
-   WHATSAPP
-===================================== */
+/* ==================================================
+   OBTENER UBICACIÓN
+================================================== */
 
-function actualizarWhatsApp(){
+function obtenerUbicacion(){
+
+const boton=
+document.getElementById("botonUbicacion");
+
+const estado=
+document.getElementById("estadoUbicacion");
+
+
+if(!navigator.geolocation){
+
+estado.innerHTML=
+"❌ Este navegador no permite obtener la ubicación.";
+
+return;
+
+}
+
+
+boton.disabled=true;
+
+boton.innerText=
+"📍 Obteniendo ubicación...";
+
+
+estado.innerHTML=
+"⏳ Esperando permiso de ubicación...";
+
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+ubicacionCliente={
+
+lat:position.coords.latitude,
+
+lon:position.coords.longitude
+
+};
+
+
+estado.innerHTML=
+"📍 Ubicación recibida. Calculando distancia...";
+
+
+calcularDistancia();
+
+},
+
+function(error){
+
+boton.disabled=false;
+
+boton.innerText=
+"📍 CALCULAR MI ENVÍO AUTOMÁTICAMENTE";
+
+
+let mensaje=
+"❌ No se pudo obtener tu ubicación.";
+
+
+if(error.code===1){
+
+mensaje=
+"❌ Debes permitir el acceso a tu ubicación para calcular el envío.";
+
+}
+
+if(error.code===2){
+
+mensaje=
+"❌ No se pudo determinar tu ubicación.";
+
+}
+
+if(error.code===3){
+
+mensaje=
+"❌ La ubicación tardó demasiado. Inténtalo nuevamente.";
+
+}
+
+
+estado.innerHTML=mensaje;
+
+},
+
+{
+
+enableHighAccuracy:true,
+
+timeout:15000,
+
+maximumAge:60000
+
+}
+
+);
+
+}
+
+
+/* ==================================================
+   LOCALIZAR NEGOCIO
+================================================== */
+
+async function localizarNegocio(){
+
+try{
+
+const url=
+"https://nominatim.openstreetmap.org/search?format=json&limit=1&q="
++
+encodeURIComponent(DIRECCION_NEGOCIO);
+
+
+const respuesta=
+await fetch(url,{
+headers:{
+"Accept":"application/json"
+}
+});
+
+
+const datos=
+await respuesta.json();
+
+
+if(datos.length>0){
+
+coordenadasNegocio={
+
+lat:parseFloat(datos[0].lat),
+
+lon:parseFloat(datos[0].lon)
+
+};
+
+return true;
+
+}
+
+
+return false;
+
+}catch(error){
+
+return false;
+
+}
+
+}
+
+
+/* ==================================================
+   DISTANCIA POR RUTA
+================================================== */
+
+async function calcularDistancia(){
+
+const estado=
+document.getElementById("estadoUbicacion");
+
+
+const envioInfo=
+document.getElementById("envioInfo");
+
+
+try{
+
+if(!coordenadasNegocio){
+
+estado.innerHTML=
+"⏳ Localizando la taquería...";
+
+
+await localizarNegocio();
+
+}
+
+
+if(!coordenadasNegocio){
+
+throw new Error(
+"No se encontró la ubicación del negocio"
+);
+
+}
+
+
+const inicio=
+`${coordenadasNegocio.lon},${coordenadasNegocio.lat}`;
+
+
+const destino=
+`${ubicacionCliente.lon},${ubicacionCliente.lat}`;
+
+
+const url=
+`https://router.project-osrm.org/route/v1/driving/${inicio};${destino}?overview=false`;
+
+
+const respuesta=
+await fetch(url);
+
+
+const datos=
+await respuesta.json();
+
+
+if(
+datos.routes &&
+datos.routes.length>0
+){
+
+distanciaKm=
+datos.routes[0].distance/1000;
+
+}else{
+
+throw new Error("Ruta no disponible");
+
+}
+
+
+aplicarEnvio();
+
+
+}catch(error){
+
+/*
+   Si el servicio de rutas no responde,
+   usamos distancia aproximada.
+*/
+
+distanciaKm=
+distanciaEnLineaRecta(
+
+coordenadasNegocio.lat,
+
+coordenadasNegocio.lon,
+
+ubicacionCliente.lat,
+
+ubicacionCliente.lon
+
+);
+
+
+aplicarEnvio();
+
+}
+
+}
+
+
+/* ==================================================
+   DISTANCIA EN LÍNEA RECTA
+================================================== */
+
+function distanciaEnLineaRecta(
+lat1,
+lon1,
+lat2,
+lon2
+){
+
+const R=6371;
+
+
+const dLat=
+(lat2-lat1)
+*Math.PI/180;
+
+
+const dLon=
+(lon2-lon1)
+*Math.PI/180;
+
+
+const a=
+Math.sin(dLat/2)*
+Math.sin(dLat/2)
++
+Math.cos(lat1*Math.PI/180)*
+Math.cos(lat2*Math.PI/180)*
+Math.sin(dLon/2)*
+Math.sin(dLon/2);
+
+
+const c=
+2*Math.atan2(
+Math.sqrt(a),
+Math.sqrt(1-a)
+);
+
+
+return R*c;
+
+}
+
+
+/* ==================================================
+   APLICAR ENVÍO
+================================================== */
+
+function aplicarEnvio(){
+
+const estado=
+document.getElementById("estadoUbicacion");
+
+
+const envioInfo=
+document.getElementById("envioInfo");
+
+
+const boton=
+document.getElementById("botonUbicacion");
+
+
+costoEnvio=
+calcularCostoEnvio(distanciaKm);
+
+
+if(costoEnvio===null){
+
+estado.innerHTML=
+`📍 Distancia aproximada: <strong>${distanciaKm.toFixed(1)} km</strong>`;
+
+
+envioInfo.innerHTML=
+"🚫 Tu ubicación está fuera del área de servicio de 20 km.";
+
+}else{
+
+estado.innerHTML=
+`📍 Distancia aproximada: <strong>${distanciaKm.toFixed(1)} km</strong>`;
+
+
+envioInfo.innerHTML=
+`🚚 Servicio a domicilio: <strong>$${costoEnvio}</strong>`;
+
+}
+
+
+boton.disabled=false;
+
+boton.innerText=
+"📍 ACTUALIZAR MI UBICACIÓN";
+
+
+mostrarPedido();
+
+}
+
+
+/* ==================================================
+   ACTUALIZAR WHATSAPP
+================================================== */
+
+function actualizarPedido(){
 
 if(carrito.length===0){
 
@@ -853,35 +1426,55 @@ detalle +=
 });
 
 
-const envio=
-Number(
-document.getElementById("kilometros").value
-)||0;
-
-
-const total=
-subtotal+envio;
-
-
 const nombre=
 document.getElementById("nombre").value
-||"No especificado";
+||
+"No especificado";
 
 
 const direccion=
 document.getElementById("direccion").value
-||"No especificada";
+||
+"No especificada";
 
 
-const opcion=
-document.getElementById("kilometros")
-.selectedOptions[0];
+const referencias=
+document.getElementById("referencias").value
+||
+"Sin referencias";
 
 
-const distancia=
-opcion
-? opcion.text
-:"No seleccionada";
+let envio=costoEnvio;
+
+
+let total="Pendiente";
+
+
+if(envio!==null && distanciaKm!==null){
+
+total=
+subtotal+envio;
+
+}else{
+
+envio="Pendiente";
+
+}
+
+
+let ubicacionTexto=
+"No compartida";
+
+
+if(
+ubicacionCliente &&
+distanciaKm!==null
+){
+
+ubicacionTexto=
+`${distanciaKm.toFixed(1)} km aproximadamente`;
+
+}
 
 
 const mensaje=
@@ -893,26 +1486,51 @@ Quiero realizar este pedido:
 ${detalle}
 
 Subtotal: $${subtotal}
-Envío: $${envio}
-TOTAL: $${total}
 
-👤 Nombre: ${nombre}
+🚚 Envío: ${
+envio==="Pendiente"
+? "Pendiente de calcular"
+: "$"+envio
+}
+
+💰 TOTAL: ${
+total==="Pendiente"
+? "Pendiente de calcular"
+: "$"+total
+}
+
+👤 Nombre:
+${nombre}
 
 📍 Dirección:
 ${direccion}
 
-🚚 Distancia:
-${distancia}`;
+📝 Referencias:
+${referencias}
+
+📍 Ubicación:
+${ubicacionTexto}`;
 
 
 const enlace=
-"https://wa.me/528149506908?text="
+"https://wa.me/"
++
+WHATSAPP
++
+"?text="
 +
 encodeURIComponent(mensaje);
 
 
+if(
+distanciaKm!==null &&
+costoEnvio!==null
+){
+
 document.getElementById("botonWhatsApp")
-.innerHTML=`
+.innerHTML=
+
+`
 
 <a
 class="whatsapp"
@@ -925,12 +1543,29 @@ target="_blank">
 
 `;
 
+}else{
+
+document.getElementById("botonWhatsApp")
+.innerHTML=
+
+`
+
+<div class="nota">
+
+📍 Primero calcula tu ubicación para conocer el costo de envío y enviar el pedido.
+
+</div>
+
+`;
+
+}
+
 }
 
 
-/* =====================================
+/* ==================================================
    INICIAR
-===================================== */
+================================================== */
 
 crearMenu();
 
