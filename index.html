@@ -4,219 +4,252 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#8b1e1e">
+
 <title>Autentitako | Menú y pedidos</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#fff7df;
-color:#333
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#fff7df;
+  color:#333;
 }
 
 header{
-background:#8b1e1e;
-color:#fff;
-text-align:center;
-padding:18px 12px;
-position:sticky;
-top:0;
-z-index:20
+  background:#8b1e1e;
+  color:white;
+  text-align:center;
+  padding:18px 12px;
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
 .logo{
-font-size:30px;
-font-weight:900
+  font-size:30px;
+  font-weight:900;
 }
 
 header p{
-margin:6px 0 0;
-font-size:14px
+  margin:6px 0 0;
+  font-size:14px;
 }
 
 main{
-max-width:760px;
-margin:auto;
-padding:12px
+  max-width:760px;
+  margin:auto;
+  padding:12px;
 }
 
 .hero{
-background:#ffd447;
-border-radius:16px;
-padding:18px;
-text-align:center;
-margin-bottom:14px
+  background:#ffd447;
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  margin-bottom:14px;
 }
 
 .hero h1{
-margin:0;
-font-size:26px
+  margin:0;
+  font-size:26px;
 }
 
 .hero p{
-margin:8px 0 0
+  margin:8px 0 0;
 }
 
 nav{
-display:flex;
-gap:8px;
-overflow-x:auto;
-padding:8px 0 14px;
-position:sticky;
-top:82px;
-background:#fff7df;
-z-index:10
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:8px 0 14px;
+  background:#fff7df;
+  position:sticky;
+  top:82px;
+  z-index:10;
 }
 
 nav a{
-background:#8b1e1e;
-color:#fff;
-text-decoration:none;
-padding:10px 14px;
-border-radius:20px;
-white-space:nowrap;
-font-weight:bold
+  background:#8b1e1e;
+  color:white;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:20px;
+  white-space:nowrap;
+  font-weight:bold;
 }
 
 section{
-margin:22px 0
+  margin:22px 0;
 }
 
 section h2{
-background:#8b1e1e;
-color:#fff;
-border-radius:12px;
-padding:10px 14px;
-font-size:21px
+  background:#8b1e1e;
+  color:white;
+  border-radius:12px;
+  padding:10px 14px;
+  font-size:21px;
 }
 
 .card{
-background:#fff;
-border-radius:14px;
-margin:9px 0;
-padding:13px;
-box-shadow:0 2px 8px #0001
+  background:white;
+  border-radius:14px;
+  margin:9px 0;
+  padding:13px;
+  box-shadow:0 2px 8px #0001;
 }
 
 .row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:10px
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
 }
 
 .name{
-font-weight:800;
-font-size:17px
+  font-weight:800;
+  font-size:17px;
 }
 
 .desc{
-font-size:13px;
-color:#666;
-margin-top:4px
+  font-size:13px;
+  color:#666;
+  margin-top:4px;
 }
 
 .price{
-font-weight:900;
-color:#b51f1f;
-font-size:19px;
-white-space:nowrap
+  font-weight:900;
+  color:#b51f1f;
+  font-size:19px;
+  white-space:nowrap;
 }
 
 button{
-border:0;
-border-radius:10px;
-padding:10px 13px;
-font-weight:bold;
-font-size:15px;
-cursor:pointer
+  border:0;
+  border-radius:10px;
+  padding:10px 13px;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
 }
 
 .add{
-background:#8b1e1e;
-color:white
+  background:#8b1e1e;
+  color:white;
 }
 
 .qty{
-background:#eee;
-padding:5px 9px
+  background:#eee;
+  padding:5px 10px;
 }
 
 #cart{
-position:fixed;
-right:15px;
-bottom:15px;
-z-index:30;
-background:#8b1e1e;
-color:#fff;
-border-radius:50px;
-padding:14px 18px;
-box-shadow:0 4px 15px #0004
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  z-index:30;
+  background:#8b1e1e;
+  color:white;
+  border-radius:50px;
+  padding:14px 18px;
+  box-shadow:0 4px 15px #0004;
 }
 
 .panel{
-background:#fff;
-border-radius:16px;
-padding:15px;
-margin-top:15px;
-box-shadow:0 2px 10px #0002
+  background:white;
+  border-radius:16px;
+  padding:15px;
+  margin-top:15px;
+  box-shadow:0 2px 10px #0002;
 }
 
-input,textarea{
-width:100%;
-padding:12px;
-border:1px solid #ccc;
-border-radius:10px;
-font-size:16px;
-margin:6px 0 12px
+input,
+textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:16px;
+  margin:6px 0 12px;
 }
 
 .primary{
-background:#198754;
-color:#fff;
-width:100%;
-padding:13px
+  background:#198754;
+  color:white;
+  width:100%;
+  padding:13px;
 }
 
 .secondary{
-background:#eee;
-width:100%;
-margin-top:8px
+  background:#eee;
+  width:100%;
+  margin-top:8px;
+}
+
+.locationButton{
+  background:#1769aa;
+  color:white;
+  width:100%;
+  margin-bottom:8px;
 }
 
 .total{
-font-size:20px;
-font-weight:900;
-margin:12px 0
+  font-size:20px;
+  font-weight:900;
+  margin:12px 0;
 }
 
 .ok{
-background:#e7f7ed;
-border:1px solid #9bd3ad;
-padding:10px;
-border-radius:10px
+  background:#e7f7ed;
+  border:1px solid #9bd3ad;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
 }
 
 .warn{
-background:#fff3cd;
-border:1px solid #e2c45c;
-padding:10px;
-border-radius:10px
+  background:#fff3cd;
+  border:1px solid #e2c45c;
+  padding:10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.locationBox{
+  background:#e8f3ff;
+  border:1px solid #9bc5eb;
+  padding:12px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.mapLink{
+  display:block;
+  background:#4285f4;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  padding:12px;
+  border-radius:10px;
+  margin-top:10px;
+  font-weight:bold;
 }
 
 .small{
-font-size:13px;
-color:#666
+  font-size:13px;
+  color:#666;
 }
 
 footer{
-text-align:center;
-padding:25px 10px 90px;
-background:#8b1e1e;
-color:white;
-margin-top:25px
+  text-align:center;
+  padding:25px 10px 90px;
+  background:#8b1e1e;
+  color:white;
+  margin-top:25px;
 }
 </style>
 </head>
@@ -224,25 +257,51 @@ margin-top:25px
 <body>
 
 <header>
-<div class="logo">🌮 AUTENTITAKO</div>
-<p>Av. Universidad #894, Joyas del Bosque</p>
-<p>Pedidos: <b>814 950 6908</b></p>
+
+<div class="logo">
+🌮 AUTENTITAKO
+</div>
+
+<p>
+Av. Universidad #894, Joyas del Bosque
+</p>
+
+<p>
+Pedidos: <b>814 950 6908</b>
+</p>
+
 </header>
+
 
 <main>
 
 <div class="hero">
-<h1>🔥 ¡Haz tu pedido!</h1>
-<p>Agrega tus productos al carrito y envía tu pedido completo por WhatsApp.</p>
+
+<h1>
+🔥 ¡Haz tu pedido!
+</h1>
+
+<p>
+Agrega tus productos, comparte tu ubicación y recibe tu pedido a domicilio.
+</p>
+
 </div>
 
+
 <nav>
+
 <a href="#trompo">🌮 Pastor</a>
+
 <a href="#bistec">🥩 Bistec</a>
+
 <a href="#hamburguesas">🍔 Hamburguesas</a>
+
 <a href="#bebidas">🥤 Bebidas</a>
+
 <a href="#especiales">⭐ Especiales</a>
+
 <a href="#pedido">🛒 Pedido</a>
+
 </nav>
 
 
@@ -250,111 +309,206 @@ margin-top:25px
 
 <section id="trompo">
 
-<h2>🌮 Carne de Pastor o Trompo</h2>
+<h2>
+🌮 Carne de Pastor o Trompo
+</h2>
+
 
 <div class="card">
+
 <div class="row">
-<div class="name">Orden c/4 tacos</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Orden c/4 tacos de pastor',75)">Agregar</button>
-</div>
+
+<div class="name">
+Orden c/4 tacos de trompo
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Taco 1 pieza</div>
-<div class="price">$25</div>
-<button class="add" onclick="add('Taco de pastor',25)">Agregar</button>
-</div>
+<div class="price">
+$75
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Promoción c/12 tacos</div>
-<div class="price">$150</div>
-<button class="add" onclick="add('Promoción 12 tacos de pastor',150)">Agregar</button>
-</div>
+<button class="add"
+onclick="add('Orden c/4 tacos de trompo',75)">
+Agregar
+</button>
+
 </div>
 
-<div class="card">
-<div class="row">
-<div>
-<div class="name">Kilo de carne de trompo</div>
-<div class="desc">Incluye tortillas, salsas, verdura y limones</div>
-</div>
-<div class="price">$450</div>
-<button class="add" onclick="add('Kilo de carne de trompo',450)">Agregar</button>
-</div>
 </div>
 
-<div class="card">
-<div class="row">
-<div>
-<div class="name">1/2 kilo de carne de trompo</div>
-<div class="desc">Incluye tortillas, salsas, verdura y limones</div>
-</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('1/2 kilo de carne de trompo',260)">Agregar</button>
-</div>
-</div>
 
 <div class="card">
+
 <div class="row">
-<div class="name">Tortillón de trompo</div>
-<div class="price">$120</div>
-<button class="add" onclick="add('Tortillón de trompo',120)">Agregar</button>
-</div>
+
+<div class="name">
+Taco de trompo
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Orden de gringas c/3</div>
-<div class="price">$120</div>
-<button class="add" onclick="add('Orden de gringas de trompo c/3',120)">Agregar</button>
-</div>
+<div class="price">
+$25
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Gringa 1 pieza</div>
-<div class="price">$45</div>
-<button class="add" onclick="add('Gringa de trompo 1 pieza',45)">Agregar</button>
-</div>
+<button class="add"
+onclick="add('Taco de trompo',25)">
+Agregar
+</button>
+
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Alambre de trompo</div>
-<div class="price">$125</div>
-<button class="add" onclick="add('Alambre de trompo',125)">Agregar</button>
-</div>
 </div>
 
-<div class="card">
-<div class="row">
-<div>
-<div class="name">1/2 platillo de alambre de trompo</div>
-<div class="desc">Incluye tortillas, salsas y limones</div>
-</div>
-<div class="price">$160</div>
-<button class="add" onclick="add('1/2 platillo de alambre de trompo',160)">Agregar</button>
-</div>
-</div>
 
 <div class="card">
+
 <div class="row">
-<div class="name">Papas especiales con pastor</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Papas especiales con pastor',75)">Agregar</button>
-</div>
+
+<div class="name">
+Promoción 12 tacos de trompo
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Papas especiales con boneless</div>
-<div class="price">$85</div>
-<button class="add" onclick="add('Papas especiales con boneless',85)">Agregar</button>
+<div class="price">
+$150
 </div>
+
+<button class="add"
+onclick="add('Promoción 12 tacos de trompo',150)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Tortillón de trompo
+</div>
+
+<div class="price">
+$120
+</div>
+
+<button class="add"
+onclick="add('Tortillón de trompo',120)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Gringas de trompo c/3
+</div>
+
+<div class="price">
+$120
+</div>
+
+<button class="add"
+onclick="add('Gringas de trompo c/3',120)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Alambre de trompo
+</div>
+
+<div class="price">
+$125
+</div>
+
+<button class="add"
+onclick="add('Alambre de trompo',125)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+1/2 platillo de alambre de trompo
+</div>
+
+<div class="price">
+$160
+</div>
+
+<button class="add"
+onclick="add('1/2 platillo de alambre de trompo',160)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Papas especiales con pastor
+</div>
+
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="add('Papas especiales con pastor',75)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Papas especiales con boneless
+</div>
+
+<div class="price">
+$85
+</div>
+
+<button class="add"
+onclick="add('Papas especiales con boneless',85)">
+Agregar
+</button>
+
+</div>
+
 </div>
 
 </section>
@@ -364,62 +518,140 @@ margin-top:25px
 
 <section id="bistec">
 
-<h2>🥩 Bistec de Res</h2>
+<h2>
+🥩 Bistec de Res
+</h2>
+
 
 <div class="card">
+
 <div class="row">
-<div class="name">Orden c/4 tacos</div>
-<div class="price">$95</div>
-<button class="add" onclick="add('Orden c/4 tacos de bistec',95)">Agregar</button>
-</div>
+
+<div class="name">
+Orden c/4 tacos de bistec
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Taco 1 pieza</div>
-<div class="price">$25</div>
-<button class="add" onclick="add('Taco de bistec',25)">Agregar</button>
-</div>
+<div class="price">
+$95
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Tortillón de bistec</div>
-<div class="price">$135</div>
-<button class="add" onclick="add('Tortillón de bistec',135)">Agregar</button>
-</div>
+<button class="add"
+onclick="add('Orden c/4 tacos de bistec',95)">
+Agregar
+</button>
+
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Gringas de bistec c/3</div>
-<div class="price">$135</div>
-<button class="add" onclick="add('Gringas de bistec c/3',135)">Agregar</button>
-</div>
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Gringa 1 pieza</div>
-<div class="price">$50</div>
-<button class="add" onclick="add('Gringa de bistec 1 pieza',50)">Agregar</button>
-</div>
-</div>
 
 <div class="card">
+
 <div class="row">
-<div class="name">Platillo que me vez</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('Platillo que me vez',260)">Agregar</button>
-</div>
+
+<div class="name">
+Taco de bistec
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Platillo de alambre</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('Platillo de alambre',260)">Agregar</button>
+<div class="price">
+$25
 </div>
+
+<button class="add"
+onclick="add('Taco de bistec',25)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Tortillón de bistec
+</div>
+
+<div class="price">
+$135
+</div>
+
+<button class="add"
+onclick="add('Tortillón de bistec',135)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Gringas de bistec c/3
+</div>
+
+<div class="price">
+$135
+</div>
+
+<button class="add"
+onclick="add('Gringas de bistec c/3',135)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Gringa de bistec 1 pieza
+</div>
+
+<div class="price">
+$50
+</div>
+
+<button class="add"
+onclick="add('Gringa de bistec 1 pieza',50)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+1/2 platillo de alambre de bistec
+</div>
+
+<div class="price">
+$160
+</div>
+
+<button class="add"
+onclick="add('1/2 platillo de alambre de bistec',160)">
+Agregar
+</button>
+
+</div>
+
 </div>
 
 </section>
@@ -429,50 +661,104 @@ margin-top:25px
 
 <section id="hamburguesas">
 
-<h2>🍔 Hamburguesas</h2>
+<h2>
+🍔 Hamburguesas
+</h2>
+
 
 <div class="card">
+
 <div class="row">
+
 <div>
-<div class="name">Hamburguesa Especial</div>
-<div class="desc">Carne de hamburguesa, jamón, queso, salchicha para asar y carne de trompo</div>
-</div>
-<div class="price">$95</div>
-<button class="add" onclick="add('Hamburguesa Especial',95)">Agregar</button>
-</div>
+
+<div class="name">
+Hamburguesa Especial
 </div>
 
-<div class="card">
-<div class="row">
-<div>
-<div class="name">Salchiburger</div>
-<div class="desc">Carne de hamburguesa, jamón, queso y salchicha para asar</div>
-</div>
-<div class="price">$80</div>
-<button class="add" onclick="add('Salchiburger',80)">Agregar</button>
-</div>
+<div class="desc">
+Carne de hamburguesa, jamón, queso, salchicha y carne de trompo
 </div>
 
-<div class="card">
-<div class="row">
-<div>
-<div class="name">Torta Burger</div>
-<div class="desc">Carne de trompo, jamón y queso</div>
-</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Torta Burger',75)">Agregar</button>
-</div>
 </div>
 
+<div class="price">
+$95
+</div>
+
+<button class="add"
+onclick="add('Hamburguesa Especial',95)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
 <div class="card">
+
 <div class="row">
-<div>
-<div class="name">Hamburguesa Sencilla</div>
-<div class="desc">Carne de hamburguesa, jamón y queso</div>
+
+<div class="name">
+Salchiburger
 </div>
-<div class="price">$70</div>
-<button class="add" onclick="add('Hamburguesa Sencilla',70)">Agregar</button>
+
+<div class="price">
+$80
 </div>
+
+<button class="add"
+onclick="add('Salchiburger',80)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Torta Burger
+</div>
+
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="add('Torta Burger',75)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Hamburguesa Sencilla
+</div>
+
+<div class="price">
+$70
+</div>
+
+<button class="add"
+onclick="add('Hamburguesa Sencilla',70)">
+Agregar
+</button>
+
+</div>
+
 </div>
 
 </section>
@@ -482,38 +768,96 @@ margin-top:25px
 
 <section id="bebidas">
 
-<h2>🥤 Bebidas</h2>
+<h2>
+🥤 Bebidas
+</h2>
+
 
 <div class="card">
+
 <div class="row">
-<div class="name">Agua de Jamaica 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Jamaica 1 litro',35)">Agregar</button>
-</div>
+
+<div class="name">
+Agua de Jamaica 1 litro
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Agua de Limón 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Limón 1 litro',35)">Agregar</button>
-</div>
+<div class="price">
+$35
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Agua de Horchata 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Horchata 1 litro',35)">Agregar</button>
-</div>
+<button class="add"
+onclick="add('Agua de Jamaica 1 litro',35)">
+Agregar
+</button>
+
 </div>
 
-<div class="card">
-<div class="row">
-<div class="name">Refresco</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Refresco',35)">Agregar</button>
 </div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Agua de Limón 1 litro
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="add('Agua de Limón 1 litro',35)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Agua de Horchata 1 litro
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="add('Agua de Horchata 1 litro',35)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="row">
+
+<div class="name">
+Refresco
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="add('Refresco',35)">
+Agregar
+</button>
+
+</div>
+
 </div>
 
 </section>
@@ -523,28 +867,52 @@ margin-top:25px
 
 <section id="especiales">
 
-<h2>⭐ Especiales</h2>
+<h2>
+⭐ Especiales
+</h2>
+
 
 <div class="card">
+
 <div class="row">
-<div>
-<div class="name">Papas especiales con pastor</div>
-<div class="desc">Papas preparadas con carne de pastor</div>
-</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Papas especiales con pastor',75)">Agregar</button>
-</div>
+
+<div class="name">
+Papas especiales con pastor
 </div>
 
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="add('Papas especiales con pastor',75)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
 <div class="card">
+
 <div class="row">
-<div>
-<div class="name">Papas especiales con boneless</div>
-<div class="desc">Papas preparadas con boneless</div>
+
+<div class="name">
+Papas especiales con boneless
 </div>
-<div class="price">$85</div>
-<button class="add" onclick="add('Papas especiales con boneless',85)">Agregar</button>
+
+<div class="price">
+$85
 </div>
+
+<button class="add"
+onclick="add('Papas especiales con boneless',85)">
+Agregar
+</button>
+
+</div>
+
 </div>
 
 </section>
@@ -554,41 +922,87 @@ margin-top:25px
 
 <section id="pedido" class="panel">
 
-<h2>🛒 Mi pedido</h2>
+<h2>
+🛒 Mi pedido
+</h2>
+
 
 <div id="cartItems">
 Tu carrito está vacío.
 </div>
 
+
 <div class="total">
 Subtotal: $<span id="subtotal">0</span>
 </div>
 
-<label><b>Nombre</b></label>
-<input id="nombre" type="text" placeholder="Tu nombre">
 
-<label><b>Dirección de entrega</b></label>
-<textarea id="direccion" rows="3" placeholder="Calle, número, colonia y referencias"></textarea>
+<label>
+<b>Nombre</b>
+</label>
 
-<button class="primary" onclick="calcularEnvio()">
-📍 Calcular costo de envío con mi ubicación
+<input
+id="nombre"
+type="text"
+placeholder="Tu nombre">
+
+
+<label>
+<b>Dirección de entrega</b>
+</label>
+
+<textarea
+id="direccion"
+rows="3"
+placeholder="Calle, número, colonia y referencias"></textarea>
+
+
+<button
+class="locationButton"
+onclick="obtenerUbicacion()">
+
+📍 Compartir mi ubicación para calcular envío
+
 </button>
 
-<p id="ubicacionEstado" class="small">
-Origen fijo: Autentitako — 25.551744, -103.326077.
-</p>
+
+<div
+id="ubicacionEstado"
+class="small">
+
+Tu ubicación solo se utiliza para calcular el envío y enviarte la ubicación en el pedido.
+
+</div>
+
 
 <div id="envioResultado"></div>
 
-<label><b>Notas del pedido</b></label>
-<textarea id="notas" rows="2" placeholder="Ej. sin cebolla, salsa aparte..."></textarea>
 
-<button class="primary" onclick="enviarWhatsApp()">
+<label>
+<b>Notas del pedido</b>
+</label>
+
+<textarea
+id="notas"
+rows="2"
+placeholder="Ej. sin cebolla, salsa aparte..."></textarea>
+
+
+<button
+class="primary"
+onclick="enviarWhatsApp()">
+
 📲 Enviar pedido completo por WhatsApp
+
 </button>
 
-<button class="secondary" onclick="vaciarCarrito()">
+
+<button
+class="secondary"
+onclick="vaciarCarrito()">
+
 🗑️ Vaciar carrito
+
 </button>
 
 </section>
@@ -596,510 +1010,792 @@ Origen fijo: Autentitako — 25.551744, -103.326077.
 </main>
 
 
-<button id="cart" onclick="document.getElementById('pedido').scrollIntoView({behavior:'smooth'})">
+<button
+id="cart"
+onclick="document.getElementById('pedido').scrollIntoView({behavior:'smooth'})">
+
 🛒 Carrito <span id="cartCount">0</span>
+
 </button>
 
 
 <footer>
-<b>AUTENTITAKO</b><br>
-Av. Universidad #894, Joyas del Bosque<br>
+
+<b>AUTENTITAKO</b>
+
+<br><br>
+
+Av. Universidad #894, Joyas del Bosque
+
+<br>
+
 Pedidos: 814 950 6908
+
 </footer>
 
 
 <script>
 
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 const WHATSAPP="528149506908";
+
+/*
+Ubicación de Autentitako
+25.551744,-103.326077
+*/
 
 const TAQUERIA_LAT=25.551744;
 const TAQUERIA_LON=-103.326077;
 
+
+/* =========================
+   CARRITO
+========================= */
+
 let carrito=[];
+
 let costoEnvio=0;
+
 let distanciaKm=null;
 
+let clienteLat=null;
+
+let clienteLon=null;
+
+
+/* =========================
+   AGREGAR PRODUCTOS
+========================= */
 
 function add(nombre,precio){
 
-let p=carrito.find(x=>x.nombre===nombre);
+  let producto=carrito.find(
+    p=>p.nombre===nombre
+  );
 
-if(p){
-p.cantidad++;
-}else{
-carrito.push({
-nombre:nombre,
-precio:precio,
-cantidad:1
-});
+  if(producto){
+
+    producto.cantidad++;
+
+  }else{
+
+    carrito.push({
+
+      nombre:nombre,
+
+      precio:precio,
+
+      cantidad:1
+
+    });
+
+  }
+
+  renderCart();
+
 }
 
-renderCart();
 
-}
-
+/* =========================
+   QUITAR PRODUCTO
+========================= */
 
 function quitar(i){
 
-if(carrito[i].cantidad>1){
+  if(carrito[i].cantidad>1){
 
-carrito[i].cantidad--;
+    carrito[i].cantidad--;
 
-}else{
+  }else{
 
-carrito.splice(i,1);
+    carrito.splice(i,1);
+
+  }
+
+  renderCart();
 
 }
 
-renderCart();
 
-}
-
+/* =========================
+   MOSTRAR CARRITO
+========================= */
 
 function renderCart(){
 
-let b=document.getElementById("cartItems");
+  const caja=
+    document.getElementById("cartItems");
 
-let n=carrito.reduce(
-(s,p)=>s+p.cantidad,
-0
-);
+  const cantidad=
+    carrito.reduce(
+      (s,p)=>s+p.cantidad,
+      0
+    );
 
-document.getElementById("cartCount").textContent=n;
-
-
-if(!carrito.length){
-
-b.textContent="Tu carrito está vacío.";
-
-document.getElementById("subtotal").textContent="0";
-
-return;
-
-}
+  document.getElementById(
+    "cartCount"
+  ).textContent=cantidad;
 
 
-let sub=0;
+  if(!carrito.length){
+
+    caja.textContent=
+      "Tu carrito está vacío.";
+
+    document.getElementById(
+      "subtotal"
+    ).textContent="0";
+
+    return;
+
+  }
 
 
-b.innerHTML=carrito.map((p,i)=>{
-
-let t=p.precio*p.cantidad;
-
-sub+=t;
-
-return `
-<div class="card">
-
-<div class="row">
-
-<div>
-
-<b>${esc(p.nombre)}</b>
-
-<br>
-
-<span class="small">
-$${p.precio} c/u × ${p.cantidad} = $${t}
-</span>
-
-</div>
-
-<button class="qty" onclick="quitar(${i})">
-−
-</button>
-
-</div>
-
-</div>
-`;
-
-}).join("");
+  let subtotal=0;
 
 
-document.getElementById("subtotal").textContent=sub;
+  caja.innerHTML=
+    carrito.map((p,i)=>{
 
-}
+      let total=
+        p.precio*p.cantidad;
 
-
-function esc(t){
-
-return t.replace(
-/[&<>"']/g,
-m=>({
-'&':'&amp;',
-'<':'&lt;',
-'>':'&gt;',
-'"':'&quot;',
-"'":'&#039;'
-}[m])
-);
-
-}
+      subtotal+=total;
 
 
-function subtotal(){
+      return `
 
-return carrito.reduce(
-(s,p)=>s+p.precio*p.cantidad,
-0
-);
+      <div class="card">
+
+        <div class="row">
+
+          <div>
+
+            <b>${esc(p.nombre)}</b>
+
+            <br>
+
+            <span class="small">
+
+            $${p.precio} c/u ×
+            ${p.cantidad}
+            =
+            $${total}
+
+            </span>
+
+          </div>
+
+
+          <button
+          class="qty"
+          onclick="quitar(${i})">
+
+          −
+
+          </button>
+
+        </div>
+
+      </div>
+
+      `;
+
+    }).join("");
+
+
+  document.getElementById(
+    "subtotal"
+  ).textContent=subtotal;
 
 }
 
 
-/* CALCULO DE DISTANCIA */
+/* =========================
+   SEGURIDAD HTML
+========================= */
 
-function dist(a,b,c,d){
+function esc(text){
 
-const R=6371;
+  return text.replace(
+    /[&<>"']/g,
+    function(m){
 
-const x=(c-a)*Math.PI/180;
+      return {
 
-const y=(d-b)*Math.PI/180;
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#039;'
 
-const q=
-Math.sin(x/2)**2+
-Math.cos(a*Math.PI/180)*
-Math.cos(c*Math.PI/180)*
-Math.sin(y/2)**2;
+      }[m];
 
-return R*2*Math.atan2(
-Math.sqrt(q),
-Math.sqrt(1-q)
-);
-
-}
-
-
-/* TARIFAS */
-
-function tarifa(k){
-
-if(k<=3) return 25;
-
-if(k<=6) return 40;
-
-if(k<=10) return 55;
-
-if(k<=15) return 80;
-
-if(k<=20) return 95;
-
-return null;
+    }
+  );
 
 }
 
 
-/* UBICACION */
+/* =========================
+   SUBTOTAL
+========================= */
 
-function calcularEnvio(){
+function obtenerSubtotal(){
 
-const s=document.getElementById("ubicacionEstado");
-
-const r=document.getElementById("envioResultado");
-
-costoEnvio=0;
-
-distanciaKm=null;
-
-s.className="warn";
-
-s.textContent="📍 Buscando tu ubicación...";
-
-
-if(!navigator.geolocation){
-
-s.textContent=
-"⚠️ Este navegador no permite obtener ubicación.";
-
-return;
+  return carrito.reduce(
+    (s,p)=>
+      s+(p.precio*p.cantidad),
+    0
+  );
 
 }
 
 
-let done=false;
+/* =========================
+   DISTANCIA
+========================= */
+
+function calcularDistancia(
+  lat1,
+  lon1,
+  lat2,
+  lon2
+){
+
+  const R=6371;
+
+  const dLat=
+    (lat2-lat1)*
+    Math.PI/180;
+
+  const dLon=
+    (lon2-lon1)*
+    Math.PI/180;
 
 
-let timer=setTimeout(()=>{
+  const a=
 
-if(done)return;
+    Math.sin(dLat/2)**2+
 
-done=true;
+    Math.cos(
+      lat1*Math.PI/180
+    )*
 
-s.textContent=
-"⚠️ No se obtuvo tu ubicación en 10 segundos. Activa el permiso de ubicación y vuelve a intentarlo.";
+    Math.cos(
+      lat2*Math.PI/180
+    )*
 
-},10000);
-
-
-navigator.geolocation.getCurrentPosition(
-
-p=>{
-
-if(done)return;
-
-done=true;
-
-clearTimeout(timer);
+    Math.sin(dLon/2)**2;
 
 
-distanciaKm=dist(
-TAQUERIA_LAT,
-TAQUERIA_LON,
-p.coords.latitude,
-p.coords.longitude
-);
-
-
-let f=tarifa(distanciaKm);
-
-
-s.className=
-f===null ? "warn" : "ok";
-
-
-s.textContent=
-`📍 Distancia aproximada: ${distanciaKm.toFixed(1)} km desde Autentitako.`;
-
-
-if(f===null){
-
-r.innerHTML=
-`
-<div class="warn">
-
-<b>El domicilio está a más de 20 km.</b>
-
-<br>
-
-Confirma el servicio por WhatsApp.
-
-</div>
-`;
-
-}else{
-
-costoEnvio=f;
-
-r.innerHTML=
-`
-<div class="ok">
-
-🚚 <b>Costo de envío: $${f}</b>
-
-<br>
-
-Distancia aproximada:
-${distanciaKm.toFixed(1)} km
-
-</div>
-`;
-
-}
-
-},
-
-e=>{
-
-if(done)return;
-
-done=true;
-
-clearTimeout(timer);
-
-
-let m=
-e.code===1
-?
-"⚠️ Permiso de ubicación denegado. Actívalo para este sitio y vuelve a intentarlo."
-:
-e.code===2
-?
-"⚠️ No fue posible determinar tu ubicación. Intenta nuevamente."
-:
-"⚠️ La búsqueda tardó demasiado. Intenta nuevamente.";
-
-
-s.className="warn";
-
-s.textContent=m;
-
-},
-
-{
-
-enableHighAccuracy:true,
-
-timeout:8000,
-
-maximumAge:60000
-
-}
-
-);
+  return R*
+    2*
+    Math.atan2(
+      Math.sqrt(a),
+      Math.sqrt(1-a)
+    );
 
 }
 
 
-/* WHATSAPP */
+/* =========================
+   TARIFAS DE ENVÍO
+========================= */
+
+function tarifaEnvio(km){
+
+  if(km<=3){
+
+    return 25;
+
+  }
+
+  if(km<=6){
+
+    return 40;
+
+  }
+
+  if(km<=10){
+
+    return 55;
+
+  }
+
+  if(km<=15){
+
+    return 80;
+
+  }
+
+  if(km<=20){
+
+    return 95;
+
+  }
+
+  return null;
+
+}
+
+
+/* =========================
+   OBTENER UBICACIÓN
+========================= */
+
+function obtenerUbicacion(){
+
+  const estado=
+    document.getElementById(
+      "ubicacionEstado"
+    );
+
+  const resultado=
+    document.getElementById(
+      "envioResultado"
+    );
+
+
+  estado.className="warn";
+
+  estado.innerHTML=
+    "📍 <b>Obteniendo tu ubicación...</b><br>Por favor acepta el permiso de ubicación.";
+
+
+  resultado.innerHTML="";
+
+
+  if(!navigator.geolocation){
+
+    estado.innerHTML=
+      "⚠️ Tu navegador no permite obtener la ubicación.";
+
+    return;
+
+  }
+
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position){
+
+      clienteLat=
+        position.coords.latitude;
+
+      clienteLon=
+        position.coords.longitude;
+
+
+      distanciaKm=
+        calcularDistancia(
+
+          TAQUERIA_LAT,
+          TAQUERIA_LON,
+
+          clienteLat,
+          clienteLon
+
+        );
+
+
+      costoEnvio=
+        tarifaEnvio(
+          distanciaKm
+        );
+
+
+      const mapa=
+        "https://www.google.com/maps?q="+
+        clienteLat+
+        ","+
+        clienteLon;
+
+
+      estado.className="ok";
+
+
+      estado.innerHTML=
+
+        "✅ <b>Ubicación obtenida correctamente.</b><br>"+
+        "La ubicación será incluida en tu pedido.";
+
+
+      if(costoEnvio===null){
+
+        resultado.innerHTML=`
+
+        <div class="warn">
+
+        ⚠️ La distancia es de
+        <b>${distanciaKm.toFixed(1)} km</b>.
+
+        <br><br>
+
+        El domicilio supera los 20 km.
+        El costo de envío deberá confirmarse por WhatsApp.
+
+        <a
+        class="mapLink"
+        href="${mapa}"
+        target="_blank">
+
+        🗺️ Ver mi ubicación en Google Maps
+
+        </a>
+
+        </div>
+
+        `;
+
+      }else{
+
+        resultado.innerHTML=`
+
+        <div class="locationBox">
+
+        📍 <b>Ubicación lista</b>
+
+        <br><br>
+
+        📏 Distancia aproximada:
+        <b>${distanciaKm.toFixed(1)} km</b>
+
+        <br><br>
+
+        🚚 Costo de envío:
+        <b>$${costoEnvio}</b>
+
+        <a
+        class="mapLink"
+        href="${mapa}"
+        target="_blank">
+
+        🗺️ Ver mi ubicación en Google Maps
+
+        </a>
+
+        </div>
+
+        `;
+
+      }
+
+    },
+
+
+    function(error){
+
+      estado.className="warn";
+
+
+      if(error.code===1){
+
+        estado.innerHTML=
+          "⚠️ No se permitió el acceso a la ubicación. Activa el permiso de ubicación para este sitio.";
+
+      }else if(error.code===2){
+
+        estado.innerHTML=
+          "⚠️ No fue posible determinar tu ubicación. Intenta nuevamente.";
+
+      }else if(error.code===3){
+
+        estado.innerHTML=
+          "⚠️ La ubicación tardó demasiado. Intenta nuevamente.";
+
+      }else{
+
+        estado.innerHTML=
+          "⚠️ No se pudo obtener la ubicación.";
+
+      }
+
+    },
+
+
+    {
+
+      enableHighAccuracy:true,
+
+      timeout:15000,
+
+      maximumAge:60000
+
+    }
+
+  );
+
+}
+
+
+/* =========================
+   ENVIAR A WHATSAPP
+========================= */
 
 function enviarWhatsApp(){
 
-if(!carrito.length){
+  if(!carrito.length){
 
-alert(
-"Agrega al menos un producto al carrito."
-);
+    alert(
+      "Agrega al menos un producto al carrito."
+    );
 
-return;
+    return;
 
-}
-
-
-let n=
-document.getElementById("nombre").value.trim();
+  }
 
 
-let d=
-document.getElementById("direccion").value.trim();
+  const nombre=
+    document.getElementById(
+      "nombre"
+    ).value.trim();
 
 
-let not=
-document.getElementById("notas").value.trim();
+  const direccion=
+    document.getElementById(
+      "direccion"
+    ).value.trim();
 
 
-if(!n){
-
-alert("Escribe tu nombre.");
-
-return;
-
-}
+  const notas=
+    document.getElementById(
+      "notas"
+    ).value.trim();
 
 
-if(!d){
+  if(!nombre){
 
-alert("Escribe tu dirección de entrega.");
+    alert(
+      "Escribe tu nombre."
+    );
 
-return;
+    return;
 
-}
-
-
-let sub=subtotal();
+  }
 
 
-let m=
+  if(!direccion){
+
+    alert(
+      "Escribe la dirección de entrega."
+    );
+
+    return;
+
+  }
+
+
+  /*
+  Es recomendable obtener la ubicación
+  antes de enviar el pedido.
+  */
+
+  if(
+    clienteLat===null ||
+    clienteLon===null
+  ){
+
+    const continuar=
+      confirm(
+        "Todavía no has compartido tu ubicación GPS. ¿Quieres enviarlo sin ubicación?"
+      );
+
+
+    if(!continuar){
+
+      return;
+
+    }
+
+  }
+
+
+  const subtotal=
+    obtenerSubtotal();
+
+
+  let mensaje=
 `🌮 *PEDIDO AUTENTITAKO*
 
-👤 *Nombre:* ${n}
+👤 *Cliente:*
+${nombre}
 
-📍 *Dirección:*
-${d}
+📍 *Dirección escrita:*
+${direccion}
 
-🛒 *PRODUCTOS:*
+🛒 *PEDIDO:*
 `;
 
 
-carrito.forEach(p=>{
+  carrito.forEach(
+    function(p){
 
-m+=
+      mensaje+=
 `• ${p.nombre} x${p.cantidad} = $${p.precio*p.cantidad}
 `;
 
-});
+    }
+  );
 
 
-m+=
+  mensaje+=
 `
-💵 *Subtotal:* $${sub}
+💵 *Subtotal:*
+$${subtotal}
 `;
 
 
-if(
-distanciaKm!==null &&
-costoEnvio>0
-){
+  /* UBICACIÓN GPS */
 
-m+=
+  if(
+    clienteLat!==null &&
+    clienteLon!==null
+  ){
+
+    const mapa=
+      "https://www.google.com/maps?q="+
+      clienteLat+
+      ","+
+      clienteLon;
+
+
+    mensaje+=
 `
-🚚 *Envío:* $${costoEnvio}
+📍 *UBICACIÓN GPS DEL CLIENTE:*
 
-📏 *Distancia aprox.:*
+Latitud:
+${clienteLat}
+
+Longitud:
+${clienteLon}
+
+🗺️ *ABRIR UBICACIÓN EN GOOGLE MAPS:*
+${mapa}
+`;
+
+  }else{
+
+    mensaje+=
+`
+📍 *Ubicación GPS:*
+No compartida por el cliente.
+`;
+
+  }
+
+
+  /* ENVÍO */
+
+  if(
+    costoEnvio!==null &&
+    costoEnvio>0 &&
+    distanciaKm!==null
+  ){
+
+    mensaje+=
+`
+📏 *Distancia aproximada:*
 ${distanciaKm.toFixed(1)} km
 
-💰 *TOTAL:* $${sub+costoEnvio}
+🚚 *Costo de envío:*
+$${costoEnvio}
+
+💰 *TOTAL:*
+$${subtotal+costoEnvio}
 `;
 
-}else{
+  }else{
 
-m+=
+    mensaje+=
 `
-🚚 *Envío:* Por confirmar
+🚚 *Costo de envío:*
+Por confirmar
 
-💰 *TOTAL SIN ENVÍO:* $${sub}
+💰 *TOTAL SIN ENVÍO:*
+$${subtotal}
 `;
 
-}
+  }
 
 
-if(not){
+  if(notas){
 
-m+=
+    mensaje+=
 `
 📝 *Notas:*
-${not}
+${notas}
 `;
 
-}
+  }
 
 
-m+=
+  mensaje+=
 `
-¡Gracias por tu pedido! 🌮🔥`;
+🔥 ¡Gracias por tu pedido!
+`;
 
 
-location.href=
-`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+  const url=
+    "https://wa.me/"+
+    WHATSAPP+
+    "?text="+
+    encodeURIComponent(mensaje);
+
+
+  window.location.href=url;
 
 }
 
 
-/* VACIAR CARRITO */
+/* =========================
+   VACIAR
+========================= */
 
 function vaciarCarrito(){
 
-carrito=[];
+  carrito=[];
 
-costoEnvio=0;
+  costoEnvio=0;
 
-distanciaKm=null;
+  distanciaKm=null;
 
-document.getElementById(
-"envioResultado"
-).innerHTML="";
+  clienteLat=null;
 
-
-document.getElementById(
-"ubicacionEstado"
-).className="small";
+  clienteLon=null;
 
 
-document.getElementById(
-"ubicacionEstado"
-).textContent=
-"Origen fijo: Autentitako — 25.551744, -103.326077.";
+  document.getElementById(
+    "envioResultado"
+  ).innerHTML="";
 
 
-renderCart();
+  document.getElementById(
+    "ubicacionEstado"
+  ).className="small";
+
+
+  document.getElementById(
+    "ubicacionEstado"
+  ).textContent=
+    "Tu ubicación solo se utiliza para calcular el envío y enviarte la ubicación en el pedido.";
+
+
+  renderCart();
 
 }
 
+
+/* =========================
+   INICIAR
+========================= */
 
 renderCart();
 
 </script>
 
 </body>
-  </html>
+</html>
