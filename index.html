@@ -1,63 +1,689 @@
-<!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#8b1e1e"><title>Autentitako | Menú Digital Editable</title>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#8b1e1e">
+<meta name="description" content="Menú digital de Taquería Autentitako">
+
+<title>Autentitako | Menú</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5efe5;color:#271b15;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:#8b1e1e;color:white;text-align:center;padding:25px 15px;position:sticky;top:0;z-index:10;box-shadow:0 3px 12px #0003}
-.logo{font-size:34px;font-weight:900}header p{margin:4px 0 14px}.btn{display:inline-block;padding:11px 16px;border-radius:30px;text-decoration:none;font-weight:800;background:#20b958;color:#fff}
-main{max-width:720px;margin:auto;padding:15px}.hero{background:#f5c542;border-radius:18px;padding:18px;text-align:center;margin-bottom:14px}
-.hero b{font-size:23px}nav{display:flex;gap:7px;overflow:auto;margin-bottom:15px}nav a{background:#fff;padding:9px 12px;border-radius:20px;text-decoration:none;color:#271b15;font-weight:800;white-space:nowrap}
-section{margin:20px 0}h2{font-size:23px;margin:0 0 9px}.card{background:#fff;border-radius:14px;padding:13px;margin:8px 0;display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;box-shadow:0 2px 8px #0001}
-.card strong{font-size:18px}.card a{background:#159447;color:#fff;text-decoration:none;border-radius:9px;padding:8px 10px;font-size:12px;font-weight:900}
-.info{background:#8b1e1e;color:#fff;border-radius:17px;padding:18px;margin-top:20px}.info h2{margin-top:0}
-.float{position:fixed;right:15px;bottom:15px;background:#20b958;color:#fff;padding:14px 18px;border-radius:30px;text-decoration:none;font-weight:900;box-shadow:0 4px 15px #0004}
-footer{text-align:center;padding:25px 10px 85px;color:#766d65;font-size:13px}
-#editor{display:none;background:#fff;border-radius:18px;padding:16px;margin:20px 0;border:2px solid #ddd}#editor h2{margin-top:0}
-.editsection{border-top:1px solid #ddd;padding:12px 0}.editrow{display:grid;grid-template-columns:1fr 90px 80px;gap:6px;margin:7px 0}
-input,button{font:inherit;padding:9px;border:1px solid #ccc;border-radius:8px}button{cursor:pointer;font-weight:800;background:#eee}.save{background:#159447;color:#fff;border:0;width:100%;padding:13px;border-radius:10px;font-weight:900;margin:8px 0}
-.warn{background:#fff3cd;padding:10px;border-radius:10px;font-size:13px}
-</style></head><body>
-<header><div class="logo">🌮 AUTENTITAKO</div><p>El verdadero sabor del trompo</p>
-<a id="headerWa" class="btn" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%20hacer%20un%20pedido." target="_blank">📲 Pedir por WhatsApp</a></header>
-<main>
-<div class="hero"><b>🔥 <span id="promoText">12 tacos de pastor $150</span></b><br>Servicio a domicilio en La Laguna</div>
-<nav><a href="#trompo">🌮 Pastor</a><a href="#res">🥩 Bistec</a><a href="#hamburguesas">🍔 Hamburguesas</a><a href="#papas">🍟 Papas</a><a href="#bebidas">🥤 Bebidas</a></nav>
-<div id="menu"><section id="trompo"><h2>🌮 Pastor / Trompo</h2><div class="card"><span class="pname" data-cat="0" data-item="0">Orden c/3 tacos</span><strong class="pprice" data-cat="0" data-item="0">$75</strong><a class="order" data-name="Orden c/3 tacos" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Orden%20c/3%20tacos." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="1">Taco de pastor</span><strong class="pprice" data-cat="0" data-item="1">$25</strong><a class="order" data-name="Taco de pastor" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Taco%20de%20pastor." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="2">🔥 Promoción 12 tacos</span><strong class="pprice" data-cat="0" data-item="2">$150</strong><a class="order" data-name="🔥 Promoción 12 tacos" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20%F0%9F%94%A5%20Promoci%C3%B3n%2012%20tacos." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="3">Kilo de carne de trompo</span><strong class="pprice" data-cat="0" data-item="3">$450</strong><a class="order" data-name="Kilo de carne de trompo" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Kilo%20de%20carne%20de%20trompo." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="4">½ kilo de carne de trompo</span><strong class="pprice" data-cat="0" data-item="4">$250</strong><a class="order" data-name="½ kilo de carne de trompo" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20%C2%BD%20kilo%20de%20carne%20de%20trompo." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="5">Tortillón de trompo</span><strong class="pprice" data-cat="0" data-item="5">$20</strong><a class="order" data-name="Tortillón de trompo" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Tortill%C3%B3n%20de%20trompo." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="6">Orden de gringas c/3</span><strong class="pprice" data-cat="0" data-item="6">$120</strong><a class="order" data-name="Orden de gringas c/3" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Orden%20de%20gringas%20c/3." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="7">Gringa</span><strong class="pprice" data-cat="0" data-item="7">$45</strong><a class="order" data-name="Gringa" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Gringa." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="8">Alambre de trompo</span><strong class="pprice" data-cat="0" data-item="8">$250</strong><a class="order" data-name="Alambre de trompo" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Alambre%20de%20trompo." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="0" data-item="9">½ platillo de alambre de trompo</span><strong class="pprice" data-cat="0" data-item="9">$155</strong><a class="order" data-name="½ platillo de alambre de trompo" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20%C2%BD%20platillo%20de%20alambre%20de%20trompo." target="_blank">PEDIR</a></div></section><section id="res"><h2>🥩 Bistec de Res</h2><div class="card"><span class="pname" data-cat="1" data-item="0">Orden c/3 tacos</span><strong class="pprice" data-cat="1" data-item="0">$95</strong><a class="order" data-name="Orden c/3 tacos" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Orden%20c/3%20tacos." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="1">Taco de bistec</span><strong class="pprice" data-cat="1" data-item="1">$25</strong><a class="order" data-name="Taco de bistec" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Taco%20de%20bistec." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="2">Tortillón de bistec</span><strong class="pprice" data-cat="1" data-item="2">$35</strong><a class="order" data-name="Tortillón de bistec" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Tortill%C3%B3n%20de%20bistec." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="3">Orden de gringas c/3</span><strong class="pprice" data-cat="1" data-item="3">$125</strong><a class="order" data-name="Orden de gringas c/3" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Orden%20de%20gringas%20c/3." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="4">Gringa</span><strong class="pprice" data-cat="1" data-item="4">$50</strong><a class="order" data-name="Gringa" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Gringa." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="5">Platillo Que Me Vez</span><strong class="pprice" data-cat="1" data-item="5">$260</strong><a class="order" data-name="Platillo Que Me Vez" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Platillo%20Que%20Me%20Vez." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="1" data-item="6">Platillo de alambre</span><strong class="pprice" data-cat="1" data-item="6">$260</strong><a class="order" data-name="Platillo de alambre" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Platillo%20de%20alambre." target="_blank">PEDIR</a></div></section><section id="hamburguesas"><h2>🍔 Hamburguesas</h2><div class="card"><span class="pname" data-cat="2" data-item="0">Hamburguesa Especial</span><strong class="pprice" data-cat="2" data-item="0">$95</strong><a class="order" data-name="Hamburguesa Especial" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Hamburguesa%20Especial." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="2" data-item="1">Salchiburger</span><strong class="pprice" data-cat="2" data-item="1">$80</strong><a class="order" data-name="Salchiburger" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Salchiburger." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="2" data-item="2">Torta Burger</span><strong class="pprice" data-cat="2" data-item="2">$75</strong><a class="order" data-name="Torta Burger" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Torta%20Burger." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="2" data-item="3">Hamburguesa Sencilla</span><strong class="pprice" data-cat="2" data-item="3">$70</strong><a class="order" data-name="Hamburguesa Sencilla" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Hamburguesa%20Sencilla." target="_blank">PEDIR</a></div></section><section id="papas"><h2>🍟 Papas</h2><div class="card"><span class="pname" data-cat="3" data-item="0">Papas a la francesa sencillas</span><strong class="pprice" data-cat="3" data-item="0">$40</strong><a class="order" data-name="Papas a la francesa sencillas" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Papas%20a%20la%20francesa%20sencillas." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="3" data-item="1">Papas especiales</span><strong class="pprice" data-cat="3" data-item="1">$75</strong><a class="order" data-name="Papas especiales" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Papas%20especiales." target="_blank">PEDIR</a></div></section><section id="bebidas"><h2>🥤 Bebidas</h2><div class="card"><span class="pname" data-cat="4" data-item="0">Agua de jamaica 1 L</span><strong class="pprice" data-cat="4" data-item="0">$35</strong><a class="order" data-name="Agua de jamaica 1 L" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Agua%20de%20jamaica%201%20L." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="4" data-item="1">Agua de limón 1 L</span><strong class="pprice" data-cat="4" data-item="1">$35</strong><a class="order" data-name="Agua de limón 1 L" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Agua%20de%20lim%C3%B3n%201%20L." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="4" data-item="2">Agua de horchata 1 L</span><strong class="pprice" data-cat="4" data-item="2">$35</strong><a class="order" data-name="Agua de horchata 1 L" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Agua%20de%20horchata%201%20L." target="_blank">PEDIR</a></div><div class="card"><span class="pname" data-cat="4" data-item="3">Refresco</span><strong class="pprice" data-cat="4" data-item="3">$35</strong><a class="order" data-name="Refresco" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%3A%20Refresco." target="_blank">PEDIR</a></div></section></div>
-<div id="editor">
-<h2>✏️ Editar mi menú</h2>
-<div class="warn">Los cambios se guardan en este navegador. Si compartes el archivo con otra persona, sus cambios no modificarán tu copia.</div>
-<label>📲 Número de WhatsApp de pedidos<br><input id="phone" value="8149506908" inputmode="numeric" style="width:100%;margin-top:5px"></label>
-<br><br><label>🔥 Texto de promoción<br><input id="promo" value="12 tacos de pastor $150" style="width:100%;margin-top:5px"></label>
-<div class="editsection"><h3>🌮 Pastor / Trompo</h3><div class="editrow"><input data-field="name" data-cat="0" data-item="0" value="Orden c/3 tacos"><input data-field="price" data-cat="0" data-item="0" type="number" min="0" value="75"><button onclick="removeItem(0,0)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="1" value="Taco de pastor"><input data-field="price" data-cat="0" data-item="1" type="number" min="0" value="25"><button onclick="removeItem(0,1)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="2" value="🔥 Promoción 12 tacos"><input data-field="price" data-cat="0" data-item="2" type="number" min="0" value="150"><button onclick="removeItem(0,2)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="3" value="Kilo de carne de trompo"><input data-field="price" data-cat="0" data-item="3" type="number" min="0" value="450"><button onclick="removeItem(0,3)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="4" value="½ kilo de carne de trompo"><input data-field="price" data-cat="0" data-item="4" type="number" min="0" value="250"><button onclick="removeItem(0,4)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="5" value="Tortillón de trompo"><input data-field="price" data-cat="0" data-item="5" type="number" min="0" value="20"><button onclick="removeItem(0,5)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="6" value="Orden de gringas c/3"><input data-field="price" data-cat="0" data-item="6" type="number" min="0" value="120"><button onclick="removeItem(0,6)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="7" value="Gringa"><input data-field="price" data-cat="0" data-item="7" type="number" min="0" value="45"><button onclick="removeItem(0,7)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="8" value="Alambre de trompo"><input data-field="price" data-cat="0" data-item="8" type="number" min="0" value="250"><button onclick="removeItem(0,8)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="0" data-item="9" value="½ platillo de alambre de trompo"><input data-field="price" data-cat="0" data-item="9" type="number" min="0" value="155"><button onclick="removeItem(0,9)">Eliminar</button></div><button onclick="addItem(0)">+ Agregar producto</button></div><div class="editsection"><h3>🥩 Bistec de Res</h3><div class="editrow"><input data-field="name" data-cat="1" data-item="0" value="Orden c/3 tacos"><input data-field="price" data-cat="1" data-item="0" type="number" min="0" value="95"><button onclick="removeItem(1,0)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="1" value="Taco de bistec"><input data-field="price" data-cat="1" data-item="1" type="number" min="0" value="25"><button onclick="removeItem(1,1)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="2" value="Tortillón de bistec"><input data-field="price" data-cat="1" data-item="2" type="number" min="0" value="35"><button onclick="removeItem(1,2)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="3" value="Orden de gringas c/3"><input data-field="price" data-cat="1" data-item="3" type="number" min="0" value="125"><button onclick="removeItem(1,3)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="4" value="Gringa"><input data-field="price" data-cat="1" data-item="4" type="number" min="0" value="50"><button onclick="removeItem(1,4)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="5" value="Platillo Que Me Vez"><input data-field="price" data-cat="1" data-item="5" type="number" min="0" value="260"><button onclick="removeItem(1,5)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="1" data-item="6" value="Platillo de alambre"><input data-field="price" data-cat="1" data-item="6" type="number" min="0" value="260"><button onclick="removeItem(1,6)">Eliminar</button></div><button onclick="addItem(1)">+ Agregar producto</button></div><div class="editsection"><h3>🍔 Hamburguesas</h3><div class="editrow"><input data-field="name" data-cat="2" data-item="0" value="Hamburguesa Especial"><input data-field="price" data-cat="2" data-item="0" type="number" min="0" value="95"><button onclick="removeItem(2,0)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="2" data-item="1" value="Salchiburger"><input data-field="price" data-cat="2" data-item="1" type="number" min="0" value="80"><button onclick="removeItem(2,1)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="2" data-item="2" value="Torta Burger"><input data-field="price" data-cat="2" data-item="2" type="number" min="0" value="75"><button onclick="removeItem(2,2)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="2" data-item="3" value="Hamburguesa Sencilla"><input data-field="price" data-cat="2" data-item="3" type="number" min="0" value="70"><button onclick="removeItem(2,3)">Eliminar</button></div><button onclick="addItem(2)">+ Agregar producto</button></div><div class="editsection"><h3>🍟 Papas</h3><div class="editrow"><input data-field="name" data-cat="3" data-item="0" value="Papas a la francesa sencillas"><input data-field="price" data-cat="3" data-item="0" type="number" min="0" value="40"><button onclick="removeItem(3,0)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="3" data-item="1" value="Papas especiales"><input data-field="price" data-cat="3" data-item="1" type="number" min="0" value="75"><button onclick="removeItem(3,1)">Eliminar</button></div><button onclick="addItem(3)">+ Agregar producto</button></div><div class="editsection"><h3>🥤 Bebidas</h3><div class="editrow"><input data-field="name" data-cat="4" data-item="0" value="Agua de jamaica 1 L"><input data-field="price" data-cat="4" data-item="0" type="number" min="0" value="35"><button onclick="removeItem(4,0)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="4" data-item="1" value="Agua de limón 1 L"><input data-field="price" data-cat="4" data-item="1" type="number" min="0" value="35"><button onclick="removeItem(4,1)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="4" data-item="2" value="Agua de horchata 1 L"><input data-field="price" data-cat="4" data-item="2" type="number" min="0" value="35"><button onclick="removeItem(4,2)">Eliminar</button></div><div class="editrow"><input data-field="name" data-cat="4" data-item="3" value="Refresco"><input data-field="price" data-cat="4" data-item="3" type="number" min="0" value="35"><button onclick="removeItem(4,3)">Eliminar</button></div><button onclick="addItem(4)">+ Agregar producto</button></div>
-<button class="save" onclick="saveMenu()">💾 Guardar cambios</button>
-<button onclick="hideEditor()" style="width:100%">Cerrar editor</button>
-</div>
-<div class="info"><h2>📍 Pedidos y domicilio</h2><p><b>WhatsApp:</b> <span id="phoneDisplay">814 950 6908</span></p>
-<p><b>Tel.:</b> 871 292 33 55 · 871 292 35 13</p><p><b>Dirección:</b> Av. Universidad #894, Joyas del Bosque.</p>
-<p><b>Zona:</b> Torreón, Gómez Palacio y Lerdo.</p><p>Servicio para todo tipo de eventos.</p></div>
-</main>
-<footer>Autentitako · Gracias por tu preferencia ❤️<br><button onclick="showEditor()" style="margin-top:12px">⚙️ Abrir editor</button></footer>
-<a id="floatWa" class="float" href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%20hacer%20un%20pedido." target="_blank">📲 Pedir ahora</a>
-<script>
-const defaults=[["🌮 Pastor / Trompo", [["Orden c/3 tacos", 75], ["Taco de pastor", 25], ["🔥 Promoción 12 tacos", 150], ["Kilo de carne de trompo", 450], ["½ kilo de carne de trompo", 250], ["Tortillón de trompo", 20], ["Orden de gringas c/3", 120], ["Gringa", 45], ["Alambre de trompo", 250], ["½ platillo de alambre de trompo", 155]]], ["🥩 Bistec de Res", [["Orden c/3 tacos", 95], ["Taco de bistec", 25], ["Tortillón de bistec", 35], ["Orden de gringas c/3", 125], ["Gringa", 50], ["Platillo Que Me Vez", 260], ["Platillo de alambre", 260]]], ["🍔 Hamburguesas", [["Hamburguesa Especial", 95], ["Salchiburger", 80], ["Torta Burger", 75], ["Hamburguesa Sencilla", 70]]], ["🍟 Papas", [["Papas a la francesa sencillas", 40], ["Papas especiales", 75]]], ["🥤 Bebidas", [["Agua de jamaica 1 L", 35], ["Agua de limón 1 L", 35], ["Agua de horchata 1 L", 35], ["Refresco", 35]]]];
-function setWA(phone,name){const p=phone.replace(/\D/g,'');return 'https://wa.me/52'+p+'?text='+encodeURIComponent('Hola Autentitako, quiero: '+name+'.')}
-function showEditor(){document.getElementById('editor').style.display='block';window.scrollTo({top:document.getElementById('editor').offsetTop-20,behavior:'smooth'})}
-function hideEditor(){document.getElementById('editor').style.display='none'}
-function saveMenu(){
- const phone=document.getElementById('phone').value; const promo=document.getElementById('promo').value;
- localStorage.setItem('autentitakoPhone',phone); localStorage.setItem('autentitakoPromo',promo);
- document.getElementById('promoText').textContent=promo; document.getElementById('phoneDisplay').textContent=phone;
- document.querySelectorAll('.pname').forEach(el=>{const i=+el.dataset.cat,j=+el.dataset.item;const x=document.querySelector(`input[data-field="name"][data-cat="${i}"][data-item="${j}"]`);if(x)el.textContent=x.value});
- document.querySelectorAll('.pprice').forEach(el=>{const i=+el.dataset.cat,j=+el.dataset.item;const x=document.querySelector(`input[data-field="price"][data-cat="${i}"][data-item="${j}"]`);if(x)el.textContent='$'+x.value});
- document.querySelectorAll('.order').forEach((a,k)=>{const name=a.closest('.card').querySelector('.pname').textContent;a.href=setWA(phone,name)});
- const base=setWA(phone,'hacer un pedido').replace('hacer%20un%20pedido.','hacer%20un%20pedido.');
- document.getElementById('headerWa').href=base;document.getElementById('floatWa').href=base;
- alert('¡Menú actualizado y guardado en este dispositivo!');
+*{
+  box-sizing:border-box;
 }
-window.addEventListener('DOMContentLoaded',()=>{
- const p=localStorage.getItem('autentitakoPhone'),promo=localStorage.getItem('autentitakoPromo');
- if(p)document.getElementById('phone').value=p;if(promo){document.getElementById('promo').value=promo;document.getElementById('promoText').textContent=promo}
-});
-function addItem(cat){alert('Para agregar productos, duplica una fila de esa categoría y después cambia nombre y precio. La versión avanzada puede añadir filas automáticamente.')}
-function removeItem(cat,item){alert('Para evitar borrar accidentalmente un producto, esta versión conserva las filas. Puedes poner un nombre como “NO DISPONIBLE” o pedirme una versión con alta/baja automática de productos.')}
-</script></body></html>
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f4ef;
+  color:#222;
+}
+
+header{
+  background:#8b1e1e;
+  color:white;
+  text-align:center;
+  padding:22px 15px;
+  box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.logo{
+  font-size:32px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  font-size:15px;
+  opacity:.95;
+}
+
+main{
+  max-width:720px;
+  margin:auto;
+  padding:15px;
+}
+
+.hero{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  margin:15px 0;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.hero b{
+  display:block;
+  font-size:24px;
+  color:#8b1e1e;
+  margin-bottom:8px;
+}
+
+.hero p{
+  margin:5px 0;
+}
+
+.promo{
+  background:#fff3cd;
+  border:2px solid #e0a800;
+  color:#6b4b00;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+section{
+  margin:22px 0;
+}
+
+h2{
+  background:#8b1e1e;
+  color:white;
+  padding:12px 15px;
+  border-radius:12px;
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.card{
+  background:white;
+  border-radius:14px;
+  padding:15px;
+  margin:10px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+
+.card-info{
+  flex:1;
+}
+
+.card strong{
+  display:block;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.card small{
+  color:#666;
+}
+
+.price{
+  font-size:20px;
+  font-weight:900;
+  color:#8b1e1e;
+  white-space:nowrap;
+}
+
+.order{
+  display:block;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.info{
+  background:#8b1e1e;
+  color:white;
+  border-radius:15px;
+  padding:18px;
+  margin:20px 0;
+  text-align:center;
+}
+
+.info a{
+  color:white;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.float{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  font-size:27px;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);
+  z-index:10;
+}
+
+footer{
+  text-align:center;
+  padding:25px 10px 90px;
+  color:#666;
+  font-size:14px;
+}
+
+/* EDITOR */
+
+#editor{
+  display:none;
+}
+
+.editsection{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  margin:20px 0;
+  border:2px solid #ddd;
+}
+
+.editsection h2{
+  margin-top:0;
+}
+
+.edit-item{
+  background:#f5f5f5;
+  padding:12px;
+  border-radius:12px;
+  margin:10px 0;
+}
+
+.edit-item input,
+.edit-item select{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+
+.edit-buttons{
+  display:flex;
+  gap:8px;
+  margin-top:8px;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:10px 14px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.save{
+  background:#198754;
+  color:white;
+}
+
+.add{
+  background:#0d6efd;
+  color:white;
+  width:100%;
+  margin-top:10px;
+}
+
+.delete{
+  background:#dc3545;
+  color:white;
+}
+
+.close{
+  background:#6c757d;
+  color:white;
+}
+
+.edit-button{
+  background:#222;
+  color:white;
+  width:100%;
+  margin-top:15px;
+}
+
+.note{
+  background:#fff3cd;
+  padding:12px;
+  border-radius:10px;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:500px){
+  .logo{
+    font-size:28px;
+  }
+
+  .card{
+    padding:13px;
+  }
+
+  .card strong{
+    font-size:17px;
+  }
+
+  .price{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌮 AUTENTITAKO</div>
+  <div class="subtitle">Taquería • Menú Digital</div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <b>¡Bienvenidos a Autentitako!</b>
+    <p>El auténtico sabor para disfrutar en familia.</p>
+    <p>🌮 Tacos • Hamburguesas • Papas • Bebidas</p>
+  </div>
+
+  <div class="promo">
+    🔥 PROMOCIÓN 🔥<br>
+    <span style="font-size:22px;">12 TACOS $150</span>
+  </div>
+
+  <a class="order"
+     href="https://wa.me/528149506908?text=Hola%20Autentitako%2C%20quiero%20hacer%20un%20pedido"
+     target="_blank">
+     📲 HACER PEDIDO POR WHATSAPP
+  </a>
+
+  <div id="menu"></div>
+
+  <div class="info">
+    <h3>📲 PEDIDOS</h3>
+    <p>
+      <a href="https://wa.me/528149506908" target="_blank">
+        814 950 6908
+      </a>
+    </p>
+
+    <p>🚗 Servicio a domicilio</p>
+    <p>📍 Torreón • Gómez Palacio • Lerdo</p>
+  </div>
+
+  <button class="edit-button" onclick="abrirEditor()">
+    ✏️ EDITAR MENÚ
+  </button>
+
+  <div id="editor" class="editsection">
+
+    <h2>✏️ Editor del menú</h2>
+
+    <div class="note">
+      Aquí puedes cambiar nombres, precios, categorías y descripciones.
+      Los cambios se guardan en este dispositivo.
+    </div>
+
+    <div id="editorItems"></div>
+
+    <button class="add" onclick="agregarProducto()">
+      ➕ AGREGAR PRODUCTO
+    </button>
+
+    <button class="save" style="width:100%;margin-top:10px;"
+            onclick="guardarMenu()">
+      💾 GUARDAR CAMBIOS
+    </button>
+
+    <button class="close" style="width:100%;margin-top:10px;"
+            onclick="cerrarEditor()">
+      CERRAR EDITOR
+    </button>
+
+  </div>
+
+</main>
+
+<footer>
+  © Autentitako<br>
+  Menú digital
+</footer>
+
+<a class="float"
+   href="https://wa.me/528149506908"
+   target="_blank">
+   💬
+</a>
+
+<script>
+
+const menuOriginal = [
+
+  {
+    categoria:"Pastor / Trompo",
+    nombre:"Orden de trompo",
+    descripcion:"4 tacos",
+    precio:75
+  },
+
+  {
+    categoria:"Pastor / Trompo",
+    nombre:"Tortillón de trompo",
+    descripcion:"Tortillón preparado con trompo",
+    precio:120
+  },
+
+  {
+    categoria:"Bistec",
+    nombre:"Orden de bistec",
+    descripcion:"4 tacos",
+    precio:95
+  },
+
+  {
+    categoria:"Bistec",
+    nombre:"Tortillón de bistec",
+    descripcion:"Tortillón preparado con bistec",
+    precio:135
+  },
+
+  {
+    categoria:"Bistec",
+    nombre:"Gringas de bistec",
+    descripcion:"3 piezas",
+    precio:135
+  },
+
+  {
+    categoria:"Alambres",
+    nombre:"1/2 platillo de alambre",
+    descripcion:"Media porción",
+    precio:160
+  },
+
+  {
+    categoria:"Papas",
+    nombre:"Papas especiales",
+    descripcion:"Elige con pastor o boneless",
+    precio:75
+  }
+
+];
+
+let menu = JSON.parse(
+  localStorage.getItem("menuAutentitako")
+) || menuOriginal;
+
+
+/* MOSTRAR MENU */
+
+function mostrarMenu(){
+
+  const contenedor = document.getElementById("menu");
+
+  contenedor.innerHTML = "";
+
+  const categorias = [];
+
+  menu.forEach(producto => {
+
+    if(!categorias.includes(producto.categoria)){
+      categorias.push(producto.categoria);
+    }
+
+  });
+
+  categorias.forEach(categoria => {
+
+    const section = document.createElement("section");
+
+    const titulo = document.createElement("h2");
+    titulo.textContent = categoria;
+
+    section.appendChild(titulo);
+
+    menu
+      .filter(producto => producto.categoria === categoria)
+      .forEach(producto => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+          <div class="card-info">
+            <strong>${escapeHTML(producto.nombre)}</strong>
+            <small>${escapeHTML(producto.descripcion || "")}</small>
+          </div>
+
+          <div class="price">
+            $${Number(producto.precio).toFixed(0)}
+          </div>
+        `;
+
+        section.appendChild(card);
+
+      });
+
+    contenedor.appendChild(section);
+
+  });
+
+}
+
+
+/* EDITOR */
+
+function abrirEditor(){
+
+  document.getElementById("editor").style.display = "block";
+
+  mostrarEditor();
+
+  window.scrollTo({
+    top:document.getElementById("editor").offsetTop,
+    behavior:"smooth"
+  });
+
+}
+
+
+function cerrarEditor(){
+
+  document.getElementById("editor").style.display = "none";
+
+}
+
+
+function mostrarEditor(){
+
+  const contenedor = document.getElementById("editorItems");
+
+  contenedor.innerHTML = "";
+
+  menu.forEach((producto,index) => {
+
+    const div = document.createElement("div");
+
+    div.className = "edit-item";
+
+    div.innerHTML = `
+
+      <label>Producto</label>
+
+      <input
+        type="text"
+        value="${escapeAttribute(producto.nombre)}"
+        onchange="actualizarProducto(${index},'nombre',this.value)"
+      >
+
+      <label>Categoría</label>
+
+      <input
+        type="text"
+        value="${escapeAttribute(producto.categoria)}"
+        onchange="actualizarProducto(${index},'categoria',this.value)"
+      >
+
+      <label>Descripción</label>
+
+      <input
+        type="text"
+        value="${escapeAttribute(producto.descripcion || '')}"
+        onchange="actualizarProducto(${index},'descripcion',this.value)"
+      >
+
+      <label>Precio</label>
+
+      <input
+        type="number"
+        min="0"
+        value="${producto.precio}"
+        onchange="actualizarProducto(${index},'precio',this.value)"
+      >
+
+      <div class="edit-buttons">
+
+        <button
+          class="delete"
+          onclick="eliminarProducto(${index})">
+          🗑️ Eliminar
+        </button>
+
+      </div>
+
+    `;
+
+    contenedor.appendChild(div);
+
+  });
+
+}
+
+
+function actualizarProducto(index,campo,valor){
+
+  menu[index][campo] = valor;
+
+}
+
+
+function eliminarProducto(index){
+
+  if(confirm("¿Quieres eliminar este producto?")){
+
+    menu.splice(index,1);
+
+    mostrarEditor();
+    mostrarMenu();
+
+  }
+
+}
+
+
+function agregarProducto(){
+
+  menu.push({
+
+    categoria:"Nueva categoría",
+
+    nombre:"Nuevo producto",
+
+    descripcion:"Descripción",
+
+    precio:0
+
+  });
+
+  mostrarEditor();
+
+}
+
+
+function guardarMenu(){
+
+  localStorage.setItem(
+    "menuAutentitako",
+    JSON.stringify(menu)
+  );
+
+  mostrarMenu();
+
+  alert("✅ Menú guardado correctamente en este dispositivo.");
+
+}
+
+
+/* RESTAURAR MENU ORIGINAL */
+
+function restaurarMenu(){
+
+  if(confirm("¿Restaurar el menú original?")){
+
+    menu = JSON.parse(
+      JSON.stringify(menuOriginal)
+    );
+
+    localStorage.setItem(
+      "menuAutentitako",
+      JSON.stringify(menu)
+    );
+
+    mostrarEditor();
+    mostrarMenu();
+
+  }
+
+}
+
+
+/* SEGURIDAD PARA TEXTO */
+
+function escapeHTML(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(text){
+
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/"/g,"&quot;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;");
+
+}
+
+
+/* INICIAR */
+
+mostrarMenu();
+
+</script>
+
+</body>
+</html>
