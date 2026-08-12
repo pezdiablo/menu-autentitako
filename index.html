@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +10,10 @@
 <style>
 *{
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -27,7 +30,7 @@ header{
   padding:18px 12px;
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
 }
 
 .logo{
@@ -70,8 +73,8 @@ nav{
   padding:8px 0 14px;
   background:#fff7df;
   position:sticky;
-  top:82px;
-  z-index:10;
+  top:94px;
+  z-index:90;
 }
 
 nav a{
@@ -114,6 +117,7 @@ section h2{
 .name{
   font-weight:800;
   font-size:17px;
+  flex:1;
 }
 
 .desc{
@@ -136,23 +140,24 @@ button{
   font-weight:bold;
   font-size:15px;
   cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+button:active{
+  transform:scale(.97);
 }
 
 .add{
   background:#8b1e1e;
   color:white;
-}
-
-.qty{
-  background:#eee;
-  padding:7px 11px;
+  white-space:nowrap;
 }
 
 #cartButton{
   position:fixed;
   right:15px;
   bottom:15px;
-  z-index:30;
+  z-index:500;
   background:#8b1e1e;
   color:white;
   border-radius:50px;
@@ -160,19 +165,25 @@ button{
   box-shadow:0 4px 15px #0004;
 }
 
-.view{
+.page{
   display:none;
 }
 
-.view.active{
+.page.active{
   display:block;
 }
 
-.back{
+.cartHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.backButton{
   background:#555;
   color:white;
-  width:100%;
-  margin-bottom:12px;
 }
 
 .panel{
@@ -190,13 +201,15 @@ textarea{
   border-radius:10px;
   font-size:16px;
   margin:6px 0 12px;
+  font-family:Arial,sans-serif;
 }
 
 .primary{
   background:#198754;
   color:white;
   width:100%;
-  padding:13px;
+  padding:14px;
+  margin-top:8px;
 }
 
 .secondary{
@@ -210,6 +223,11 @@ textarea{
   color:white;
   width:100%;
   margin-bottom:8px;
+}
+
+.removeButton{
+  background:#eee;
+  min-width:45px;
 }
 
 .total{
@@ -272,256 +290,553 @@ footer{
   color:white;
   margin-top:25px;
 }
+
+@media(max-width:520px){
+
+  .row{
+    flex-wrap:wrap;
+  }
+
+  .name{
+    min-width:45%;
+  }
+
+  .price{
+    margin-left:auto;
+  }
+
+  .add{
+    width:100%;
+  }
+
+  nav{
+    top:94px;
+  }
+}
 </style>
 </head>
 
 <body>
 
+<!-- =========================================
+     ENCABEZADO
+========================================= -->
+
 <header>
-<div class="logo">🌮 AUTENTITAKO</div>
-<p>Av. Universidad #894, Joyas del Bosque</p>
-<p>Pedidos: <b>814 950 6908</b></p>
+
+<div class="logo">
+🌮 AUTENTITAKO
+</div>
+
+<p>
+Av. Universidad #894, Joyas del Bosque
+</p>
+
+<p>
+Pedidos: <b>814 950 6908</b>
+</p>
+
 </header>
 
 
-<!-- ==============================
-     MENÚ
-================================ -->
+<!-- =========================================
+     PÁGINA DEL MENÚ
+========================================= -->
 
-<div id="menuView" class="view active">
+<div id="menuPage" class="page active">
 
 <main>
 
 <div class="hero">
-<h1>🔥 ¡Haz tu pedido!</h1>
-<p>Agrega tus productos, comparte tu ubicación y recibe tu pedido a domicilio.</p>
+
+<h1>
+🔥 ¡Haz tu pedido!
+</h1>
+
+<p>
+Agrega tus productos, comparte tu ubicación y recibe tu pedido a domicilio.
+</p>
+
 </div>
 
 
 <nav>
+
 <a href="#trompo">🌮 Pastor</a>
+
 <a href="#bistec">🥩 Bistec</a>
+
 <a href="#hamburguesas">🍔 Hamburguesas</a>
+
 <a href="#bebidas">🥤 Bebidas</a>
+
 <a href="#especiales">⭐ Especiales</a>
+
 </nav>
 
 
-<!-- ==============================
-     TROMPO
-================================ -->
+<!-- =========================================
+     PASTOR / TROMPO
+========================================= -->
 
 <section id="trompo">
 
-<h2>🌮 Carne de Pastor o Trompo</h2>
+<h2>
+🌮 Carne de Pastor o Trompo
+</h2>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Orden c/4 tacos de trompo</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Orden c/4 tacos de trompo',75)">Agregar</button>
-</div>
-</div>
 
-
-<div class="card">
-<div class="row">
-<div class="name">Taco de trompo</div>
-<div class="price">$25</div>
-<button class="add" onclick="add('Taco de trompo',25)">Agregar</button>
-</div>
+<div class="name">
+Orden c/4 tacos de trompo
 </div>
 
+<div class="price">
+$75
+</div>
 
-<div class="card">
-<div class="row">
-<div class="name">Promoción 12 tacos de trompo</div>
-<div class="price">$150</div>
-<button class="add" onclick="add('Promoción 12 tacos de trompo',150)">Agregar</button>
+<button class="add"
+onclick="agregarProducto('Orden c/4 tacos de trompo',75)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">½ kilo de trompo</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('½ kilo de trompo',260)">Agregar</button>
+
+<div class="name">
+Taco de trompo
+</div>
+
+<div class="price">
+$25
+</div>
+
+<button class="add"
+onclick="agregarProducto('Taco de trompo',25)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">1 kilo de trompo</div>
-<div class="price">$450</div>
-<button class="add" onclick="add('1 kilo de trompo',450)">Agregar</button>
+
+<div class="name">
+Promoción 12 tacos de trompo
+</div>
+
+<div class="price">
+$150
+</div>
+
+<button class="add"
+onclick="agregarProducto('Promoción 12 tacos de trompo',150)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Tortillón de trompo</div>
-<div class="price">$120</div>
-<button class="add" onclick="add('Tortillón de trompo',120)">Agregar</button>
+
+<div class="name">
+½ kilo de trompo
+</div>
+
+<div class="price">
+$260
+</div>
+
+<button class="add"
+onclick="agregarProducto('½ kilo de trompo',260)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Gringas de trompo c/3</div>
-<div class="price">$120</div>
-<button class="add" onclick="add('Gringas de trompo c/3',120)">Agregar</button>
+
+<div class="name">
+1 kilo de trompo
+</div>
+
+<div class="price">
+$450
+</div>
+
+<button class="add"
+onclick="agregarProducto('1 kilo de trompo',450)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">½ platillo de alambre de trompo</div>
-<div class="price">$160</div>
-<button class="add" onclick="add('½ platillo de alambre de trompo',160)">Agregar</button>
+
+<div class="name">
+Tortillón de trompo
+</div>
+
+<div class="price">
+$120
+</div>
+
+<button class="add"
+onclick="agregarProducto('Tortillón de trompo',120)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Platillo completo de alambre de trompo</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('Platillo completo de alambre de trompo',260)">Agregar</button>
+
+<div class="name">
+Gringas de trompo c/3
+</div>
+
+<div class="price">
+$120
+</div>
+
+<button class="add"
+onclick="agregarProducto('Gringas de trompo c/3',120)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Papas especiales con pastor</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Papas especiales con pastor',75)">Agregar</button>
+
+<div class="name">
+½ platillo de alambre de trompo
+</div>
+
+<div class="price">
+$160
+</div>
+
+<button class="add"
+onclick="agregarProducto('½ platillo de alambre de trompo',160)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Papas especiales con boneless</div>
-<div class="price">$85</div>
-<button class="add" onclick="add('Papas especiales con boneless',85)">Agregar</button>
+
+<div class="name">
+Platillo completo de alambre de trompo
+</div>
+
+<div class="price">
+$260
+</div>
+
+<button class="add"
+onclick="agregarProducto('Platillo completo de alambre de trompo',260)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Orden de papas sencillas</div>
-<div class="price">$40</div>
-<button class="add" onclick="add('Orden de papas sencillas',40)">Agregar</button>
+
+<div class="name">
+Papas especiales con pastor
+</div>
+
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="agregarProducto('Papas especiales con pastor',75)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Papas especiales con boneless
+</div>
+
+<div class="price">
+$85
+</div>
+
+<button class="add"
+onclick="agregarProducto('Papas especiales con boneless',85)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Orden de papas sencillas
+</div>
+
+<div class="price">
+$40
+</div>
+
+<button class="add"
+onclick="agregarProducto('Orden de papas sencillas',40)">
+Agregar
+</button>
+
 </div>
 </div>
 
 </section>
 
 
-<!-- ==============================
+<!-- =========================================
      BISTEC
-================================ -->
+========================================= -->
 
 <section id="bistec">
 
-<h2>🥩 Bistec de Res</h2>
+<h2>
+🥩 Bistec de Res
+</h2>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Orden c/4 tacos de bistec</div>
-<div class="price">$95</div>
-<button class="add" onclick="add('Orden c/4 tacos de bistec',95)">Agregar</button>
-</div>
-</div>
 
-
-<div class="card">
-<div class="row">
-<div class="name">Taco de bistec</div>
-<div class="price">$25</div>
-<button class="add" onclick="add('Taco de bistec',25)">Agregar</button>
-</div>
+<div class="name">
+Orden c/4 tacos de bistec
 </div>
 
+<div class="price">
+$95
+</div>
 
-<div class="card">
-<div class="row">
-<div class="name">Tortillón de bistec</div>
-<div class="price">$135</div>
-<button class="add" onclick="add('Tortillón de bistec',135)">Agregar</button>
+<button class="add"
+onclick="agregarProducto('Orden c/4 tacos de bistec',95)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Gringas de bistec c/3</div>
-<div class="price">$135</div>
-<button class="add" onclick="add('Gringas de bistec c/3',135)">Agregar</button>
+
+<div class="name">
+Taco de bistec
+</div>
+
+<div class="price">
+$25
+</div>
+
+<button class="add"
+onclick="agregarProducto('Taco de bistec',25)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Gringa de bistec 1 pieza</div>
-<div class="price">$50</div>
-<button class="add" onclick="add('Gringa de bistec 1 pieza',50)">Agregar</button>
+
+<div class="name">
+Tortillón de bistec
+</div>
+
+<div class="price">
+$135
+</div>
+
+<button class="add"
+onclick="agregarProducto('Tortillón de bistec',135)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">½ platillo de alambre de bistec</div>
-<div class="price">$160</div>
-<button class="add" onclick="add('½ platillo de alambre de bistec',160)">Agregar</button>
+
+<div class="name">
+Gringas de bistec c/3
+</div>
+
+<div class="price">
+$135
+</div>
+
+<button class="add"
+onclick="agregarProducto('Gringas de bistec c/3',135)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Platillo completo de alambre de bistec</div>
-<div class="price">$260</div>
-<button class="add" onclick="add('Platillo completo de alambre de bistec',260)">Agregar</button>
+
+<div class="name">
+Gringa de bistec 1 pieza
+</div>
+
+<div class="price">
+$50
+</div>
+
+<button class="add"
+onclick="agregarProducto('Gringa de bistec 1 pieza',50)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+½ platillo de alambre de bistec
+</div>
+
+<div class="price">
+$160
+</div>
+
+<button class="add"
+onclick="agregarProducto('½ platillo de alambre de bistec',160)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Platillo completo de alambre de bistec
+</div>
+
+<div class="price">
+$260
+</div>
+
+<button class="add"
+onclick="agregarProducto('Platillo completo de alambre de bistec',260)">
+Agregar
+</button>
+
 </div>
 </div>
 
 </section>
 
 
-<!-- ==============================
+<!-- =========================================
      HAMBURGUESAS
-================================ -->
+========================================= -->
 
 <section id="hamburguesas">
 
-<h2>🍔 Hamburguesas</h2>
+<h2>
+🍔 Hamburguesas
+</h2>
 
 
 <div class="card">
+
 <div class="row">
 
 <div>
-<div class="name">Hamburguesa Especial</div>
+
+<div class="name">
+Hamburguesa Especial
+</div>
+
 <div class="desc">
 Carne de hamburguesa, jamón, queso, salchicha y carne de trompo
 </div>
+
 </div>
 
-<div class="price">$95</div>
+<div class="price">
+$95
+</div>
 
-<button class="add" onclick="add('Hamburguesa Especial',95)">Agregar</button>
+<button class="add"
+onclick="agregarProducto('Hamburguesa Especial',95)">
+Agregar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Salchiburger
+</div>
+
+<div class="price">
+$80
+</div>
+
+<button class="add"
+onclick="agregarProducto('Salchiburger',80)">
+Agregar
+</button>
 
 </div>
 </div>
@@ -529,164 +844,281 @@ Carne de hamburguesa, jamón, queso, salchicha y carne de trompo
 
 <div class="card">
 <div class="row">
-<div class="name">Salchiburger</div>
-<div class="price">$80</div>
-<button class="add" onclick="add('Salchiburger',80)">Agregar</button>
+
+<div class="name">
+Torta Burger
+</div>
+
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="agregarProducto('Torta Burger',75)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Torta Burger</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Torta Burger',75)">Agregar</button>
-</div>
+
+<div class="name">
+Hamburguesa Sencilla
 </div>
 
+<div class="price">
+$70
+</div>
 
-<div class="card">
-<div class="row">
-<div class="name">Hamburguesa Sencilla</div>
-<div class="price">$70</div>
-<button class="add" onclick="add('Hamburguesa Sencilla',70)">Agregar</button>
+<button class="add"
+onclick="agregarProducto('Hamburguesa Sencilla',70)">
+Agregar
+</button>
+
 </div>
 </div>
 
 </section>
 
 
-<!-- ==============================
+<!-- =========================================
      BEBIDAS
-================================ -->
+========================================= -->
 
 <section id="bebidas">
 
-<h2>🥤 Bebidas</h2>
+<h2>
+🥤 Bebidas
+</h2>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Agua de Jamaica 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Jamaica 1 litro',35)">Agregar</button>
-</div>
-</div>
 
-
-<div class="card">
-<div class="row">
-<div class="name">Agua de Limón 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Limón 1 litro',35)">Agregar</button>
-</div>
+<div class="name">
+Agua de Jamaica 1 litro
 </div>
 
+<div class="price">
+$35
+</div>
 
-<div class="card">
-<div class="row">
-<div class="name">Agua de Horchata 1 litro</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Agua de Horchata 1 litro',35)">Agregar</button>
+<button class="add"
+onclick="agregarProducto('Agua de Jamaica 1 litro',35)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Refresco</div>
-<div class="price">$35</div>
-<button class="add" onclick="add('Refresco',35)">Agregar</button>
+
+<div class="name">
+Agua de Limón 1 litro
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="agregarProducto('Agua de Limón 1 litro',35)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Agua de Horchata 1 litro
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="agregarProducto('Agua de Horchata 1 litro',35)">
+Agregar
+</button>
+
+</div>
+</div>
+
+
+<div class="card">
+<div class="row">
+
+<div class="name">
+Refresco
+</div>
+
+<div class="price">
+$35
+</div>
+
+<button class="add"
+onclick="agregarProducto('Refresco',35)">
+Agregar
+</button>
+
 </div>
 </div>
 
 </section>
 
 
-<!-- ==============================
+<!-- =========================================
      ESPECIALES
-================================ -->
+========================================= -->
 
 <section id="especiales">
 
-<h2>⭐ Especiales</h2>
+<h2>
+⭐ Especiales
+</h2>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Papas especiales con pastor</div>
-<div class="price">$75</div>
-<button class="add" onclick="add('Papas especiales con pastor',75)">Agregar</button>
+
+<div class="name">
+Papas especiales con pastor
+</div>
+
+<div class="price">
+$75
+</div>
+
+<button class="add"
+onclick="agregarProducto('Papas especiales con pastor',75)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Papas especiales con boneless</div>
-<div class="price">$85</div>
-<button class="add" onclick="add('Papas especiales con boneless',85)">Agregar</button>
+
+<div class="name">
+Papas especiales con boneless
+</div>
+
+<div class="price">
+$85
+</div>
+
+<button class="add"
+onclick="agregarProducto('Papas especiales con boneless',85)">
+Agregar
+</button>
+
 </div>
 </div>
 
 
 <div class="card">
 <div class="row">
-<div class="name">Orden de papas sencillas</div>
-<div class="price">$40</div>
-<button class="add" onclick="add('Orden de papas sencillas',40)">Agregar</button>
+
+<div class="name">
+Orden de papas sencillas
+</div>
+
+<div class="price">
+$40
+</div>
+
+<button class="add"
+onclick="agregarProducto('Orden de papas sencillas',40)">
+Agregar
+</button>
+
 </div>
 </div>
 
 </section>
 
-</main>
-
 
 <footer>
+
 <b>AUTENTITAKO</b>
+
 <br><br>
+
 Av. Universidad #894, Joyas del Bosque
+
 <br>
+
 Pedidos: 814 950 6908
+
 </footer>
+
+</main>
 
 </div>
 
 
-<!-- ==============================
-     CARRITO
-================================ -->
+<!-- =========================================
+     PÁGINA DEL CARRITO
+========================================= -->
 
-<div id="cartView" class="view">
+<div id="cartPage" class="page">
 
 <main>
 
 <div class="panel">
 
-<button class="back" onclick="mostrarMenu()">
-⬅️ Volver al menú
+<div class="cartHeader">
+
+<h2 style="margin:0;">
+🛒 Mi pedido
+</h2>
+
+<button
+class="backButton"
+onclick="volverAlMenu()">
+
+⬅️ Menú
+
 </button>
 
+</div>
 
-<h2>🛒 Mi carrito</h2>
 
-
-<div id="cartItems"></div>
+<div id="cartItems">
+</div>
 
 
 <div class="total">
-Subtotal: $<span id="subtotal">0</span>
+
+Subtotal:
+$<span id="subtotal">0</span>
+
 </div>
 
 
 <hr>
 
 
-<h2>📦 Datos de entrega</h2>
+<h2>
+📦 Datos de entrega
+</h2>
 
 
-<label><b>Nombre</b></label>
+<label>
+<b>Nombre</b>
+</label>
 
 <input
 id="nombre"
@@ -694,7 +1126,9 @@ type="text"
 placeholder="Tu nombre">
 
 
-<label><b>Dirección de entrega</b></label>
+<label>
+<b>Dirección de entrega</b>
+</label>
 
 <textarea
 id="direccion"
@@ -711,15 +1145,22 @@ onclick="obtenerUbicacion()">
 </button>
 
 
-<div id="ubicacionEstado" class="small">
-Tu ubicación se utilizará para calcular el envío y enviar al repartidor la ubicación GPS.
+<div
+id="ubicacionEstado"
+class="small">
+
+Tu ubicación se utiliza para calcular el envío y enviarla al repartidor junto con el pedido.
+
 </div>
 
 
-<div id="envioResultado"></div>
+<div id="envioResultado">
+</div>
 
 
-<label><b>Notas del pedido</b></label>
+<label>
+<b>Notas del pedido</b>
+</label>
 
 <textarea
 id="notas"
@@ -751,80 +1192,123 @@ onclick="vaciarCarrito()">
 </div>
 
 
-<!-- BOTÓN CARRITO -->
+<!-- =========================================
+     BOTÓN FLOTANTE DEL CARRITO
+========================================= -->
 
 <button
 id="cartButton"
-onclick="mostrarCarrito()">
+onclick="abrirCarrito()">
 
-🛒 Carrito (<span id="cartCount">0</span>)
+🛒 Carrito
+(<span id="cartCount">0</span>)
 
 </button>
 
 
 <script>
 
-/* ==================================
+/* ==================================================
    CONFIGURACIÓN
-================================== */
+================================================== */
 
-const WHATSAPP="528149506908";
+const WHATSAPP = "528149506908";
 
-const TAQUERIA_LAT=25.551744;
-const TAQUERIA_LON=-103.326077;
+/*
+   Ubicación de Autentitako
+*/
+
+const TAQUERIA_LAT = 25.551744;
+const TAQUERIA_LON = -103.326077;
 
 
-/* ==================================
+/* ==================================================
    VARIABLES
-================================== */
+================================================== */
 
-let carrito=[];
+let carrito = [];
 
-let costoEnvio=0;
+let costoEnvio = 0;
 
-let distanciaKm=null;
+let distanciaKm = null;
 
-let clienteLat=null;
+let clienteLat = null;
 
-let clienteLon=null;
+let clienteLon = null;
 
 
-/* ==================================
+/* ==================================================
    AGREGAR PRODUCTO
-================================== */
+================================================== */
 
-function add(nombre,precio){
+function agregarProducto(nombre, precio){
 
-  let producto=carrito.find(
-    p=>p.nombre===nombre
-  );
+  const existente =
+    carrito.find(
+      producto => producto.nombre === nombre
+    );
 
-  if(producto){
 
-    producto.cantidad++;
+  if(existente){
+
+    existente.cantidad++;
 
   }else{
 
     carrito.push({
-      nombre:nombre,
-      precio:precio,
-      cantidad:1
+
+      nombre: nombre,
+
+      precio: precio,
+
+      cantidad: 1
+
     });
 
   }
 
+
   actualizarCarrito();
+
+
+  /*
+    Pequeña confirmación visual
+  */
+
+  mostrarCarritoTemporal();
 
 }
 
 
-/* ==================================
-   QUITAR PRODUCTO
-================================== */
+/* ==================================================
+   CONFIRMACIÓN VISUAL
+================================================== */
 
-function quitar(index){
+function mostrarCarritoTemporal(){
 
-  if(carrito[index].cantidad>1){
+  const boton =
+    document.getElementById("cartButton");
+
+
+  boton.style.transform = "scale(1.08)";
+
+
+  setTimeout(function(){
+
+    boton.style.transform = "scale(1)";
+
+  },180);
+
+}
+
+
+/* ==================================================
+   ELIMINAR UNA UNIDAD
+================================================== */
+
+function quitarProducto(index){
+
+  if(carrito[index].cantidad > 1){
 
     carrito[index].cantidad--;
 
@@ -834,30 +1318,48 @@ function quitar(index){
 
   }
 
+
   actualizarCarrito();
 
 }
 
 
-/* ==================================
+/* ==================================================
+   ELIMINAR COMPLETAMENTE
+================================================== */
+
+function eliminarProducto(index){
+
+  carrito.splice(index,1);
+
+  actualizarCarrito();
+
+}
+
+
+/* ==================================================
    ACTUALIZAR CARRITO
-================================== */
+================================================== */
 
 function actualizarCarrito(){
 
-  const cantidad=
+  const cantidadTotal =
     carrito.reduce(
-      (s,p)=>s+p.cantidad,
+      function(total,producto){
+
+        return total + producto.cantidad;
+
+      },
       0
     );
 
 
   document.getElementById(
     "cartCount"
-  ).textContent=cantidad;
+  ).textContent = cantidadTotal;
 
 
-  const caja=
+  const caja =
     document.getElementById(
       "cartItems"
     );
@@ -865,101 +1367,137 @@ function actualizarCarrito(){
 
   if(!carrito.length){
 
-    caja.innerHTML=`
+    caja.innerHTML = `
 
       <div class="empty">
-        🛒 Tu carrito está vacío.
+
+        🛒 <b>Tu carrito está vacío.</b>
+
         <br><br>
-        Regresa al menú para agregar productos.
+
+        Regresa al menú y agrega tus productos.
+
       </div>
 
     `;
 
+
     document.getElementById(
       "subtotal"
-    ).textContent="0";
+    ).textContent = "0";
+
 
     return;
 
   }
 
 
-  let subtotal=0;
+  let subtotal = 0;
 
 
-  caja.innerHTML=
-    carrito.map((p,i)=>{
-
-      const total=
-        p.precio*p.cantidad;
-
-      subtotal+=total;
+  let html = "";
 
 
-      return `
+  carrito.forEach(
+    function(producto,index){
 
-      <div class="card">
+      const totalProducto =
+        producto.precio *
+        producto.cantidad;
 
-        <div class="row">
 
-          <div>
+      subtotal += totalProducto;
 
-            <b>${esc(p.nombre)}</b>
 
-            <br>
+      html += `
 
-            <span class="small">
+        <div class="card">
 
-              $${p.precio} c/u ×
-              ${p.cantidad}
-              =
-              $${total}
+          <div class="row">
 
-            </span>
+            <div>
+
+              <div class="name">
+                ${escapar(producto.nombre)}
+              </div>
+
+              <div class="small">
+
+                $${producto.precio}
+                ×
+                ${producto.cantidad}
+
+                =
+                <b>$${totalProducto}</b>
+
+              </div>
+
+            </div>
+
+
+            <div style="display:flex;gap:5px;">
+
+              <button
+                class="removeButton"
+                onclick="quitarProducto(${index})">
+
+                −
+
+              </button>
+
+
+              <button
+                class="removeButton"
+                onclick="eliminarProducto(${index})">
+
+                🗑️
+
+              </button>
+
+            </div>
 
           </div>
 
-          <button
-            class="qty"
-            onclick="quitar(${i})">
-
-            −
-
-          </button>
-
         </div>
-
-      </div>
 
       `;
 
-    }).join("");
+    }
+  );
+
+
+  caja.innerHTML = html;
 
 
   document.getElementById(
     "subtotal"
-  ).textContent=subtotal;
+  ).textContent = subtotal;
 
 }
 
 
-/* ==================================
-   SEGURIDAD
-================================== */
+/* ==================================================
+   ESCAPAR TEXTO
+================================================== */
 
-function esc(text){
+function escapar(texto){
 
-  return text.replace(
+  return texto.replace(
     /[&<>"']/g,
-    function(m){
+    function(caracter){
 
-      return {
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        '"':'&quot;',
-        "'":'&#039;'
-      }[m];
+      const mapa = {
+
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#039;"
+
+      };
+
+
+      return mapa[caracter];
 
     }
   );
@@ -967,68 +1505,80 @@ function esc(text){
 }
 
 
-/* ==================================
-   SUBTOTAL
-================================== */
+/* ==================================================
+   ABRIR CARRITO
+================================================== */
 
-function obtenerSubtotal(){
-
-  return carrito.reduce(
-    (s,p)=>
-      s+(p.precio*p.cantidad),
-    0
-  );
-
-}
-
-
-/* ==================================
-   MOSTRAR CARRITO
-================================== */
-
-function mostrarCarrito(){
+function abrirCarrito(){
 
   document.getElementById(
-    "menuView"
+    "menuPage"
   ).classList.remove("active");
 
 
   document.getElementById(
-    "cartView"
+    "cartPage"
   ).classList.add("active");
 
 
-  window.scrollTo(0,0);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
 
   actualizarCarrito();
 
 }
 
 
-/* ==================================
-   MOSTRAR MENÚ
-================================== */
+/* ==================================================
+   VOLVER AL MENÚ
+================================================== */
 
-function mostrarMenu(){
+function volverAlMenu(){
 
   document.getElementById(
-    "cartView"
+    "cartPage"
   ).classList.remove("active");
 
 
   document.getElementById(
-    "menuView"
+    "menuPage"
   ).classList.add("active");
 
 
-  window.scrollTo(0,0);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
 
-/* ==================================
-   CALCULAR DISTANCIA
-================================== */
+/* ==================================================
+   SUBTOTAL
+================================================== */
+
+function obtenerSubtotal(){
+
+  return carrito.reduce(
+    function(total,producto){
+
+      return total +
+        producto.precio *
+        producto.cantidad;
+
+    },
+    0
+  );
+
+}
+
+
+/* ==================================================
+   DISTANCIA
+================================================== */
 
 function calcularDistancia(
   lat1,
@@ -1037,104 +1587,134 @@ function calcularDistancia(
   lon2
 ){
 
-  const R=6371;
-
-  const dLat=
-    (lat2-lat1)*
-    Math.PI/180;
-
-  const dLon=
-    (lon2-lon1)*
-    Math.PI/180;
+  const R = 6371;
 
 
-  const a=
+  const dLat =
+    (lat2-lat1) *
+    Math.PI / 180;
 
-    Math.sin(dLat/2)**2+
+
+  const dLon =
+    (lon2-lon1) *
+    Math.PI / 180;
+
+
+  const a =
+
+    Math.sin(dLat/2) *
+    Math.sin(dLat/2)
+
+    +
 
     Math.cos(
-      lat1*Math.PI/180
-    )*
+      lat1 * Math.PI / 180
+    )
+
+    *
 
     Math.cos(
-      lat2*Math.PI/180
-    )*
+      lat2 * Math.PI / 180
+    )
 
-    Math.sin(dLon/2)**2;
+    *
+
+    Math.sin(dLon/2) *
+    Math.sin(dLon/2);
 
 
-  return R*
-    2*
+  const c =
+    2 *
     Math.atan2(
       Math.sqrt(a),
       Math.sqrt(1-a)
     );
 
+
+  return R*c;
+
 }
 
 
-/* ==================================
-   TARIFAS DE ENVÍO
-================================== */
+/* ==================================================
+   COSTO DE ENVÍO
+================================================== */
 
 function tarifaEnvio(km){
 
-  if(km<=3){
+  if(km <= 3){
+
     return 25;
+
   }
 
-  if(km<=6){
+
+  if(km <= 6){
+
     return 40;
+
   }
 
-  if(km<=10){
+
+  if(km <= 10){
+
     return 55;
+
   }
 
-  if(km<=15){
+
+  if(km <= 15){
+
     return 80;
+
   }
 
-  if(km<=20){
+
+  if(km <= 20){
+
     return 95;
+
   }
+
 
   return null;
 
 }
 
 
-/* ==================================
-   OBTENER UBICACIÓN
-================================== */
+/* ==================================================
+   OBTENER UBICACIÓN GPS
+================================================== */
 
 function obtenerUbicacion(){
 
-  const estado=
+  const estado =
     document.getElementById(
       "ubicacionEstado"
     );
 
 
-  const resultado=
+  const resultado =
     document.getElementById(
       "envioResultado"
     );
 
 
-  estado.className="warn";
-
-  estado.innerHTML=
-    "📍 <b>Obteniendo tu ubicación...</b><br>Por favor acepta el permiso de ubicación.";
+  estado.className = "warn";
 
 
-  resultado.innerHTML="";
+  estado.innerHTML =
+    "📍 <b>Obteniendo ubicación...</b><br>" +
+    "Por favor acepta el permiso de ubicación.";
+
+
+  resultado.innerHTML = "";
 
 
   if(!navigator.geolocation){
 
-    estado.innerHTML=
-      "⚠️ Tu navegador no permite obtener la ubicación.";
+    estado.innerHTML =
+      "⚠️ Este navegador no permite obtener la ubicación.";
 
     return;
 
@@ -1145,14 +1725,15 @@ function obtenerUbicacion(){
 
     function(position){
 
-      clienteLat=
+      clienteLat =
         position.coords.latitude;
 
-      clienteLon=
+
+      clienteLon =
         position.coords.longitude;
 
 
-      distanciaKm=
+      distanciaKm =
         calcularDistancia(
 
           TAQUERIA_LAT,
@@ -1164,30 +1745,30 @@ function obtenerUbicacion(){
         );
 
 
-      costoEnvio=
+      costoEnvio =
         tarifaEnvio(
           distanciaKm
         );
 
 
-      const mapa=
-        "https://www.google.com/maps?q="+
-        clienteLat+
-        ","+
+      const mapa =
+        "https://www.google.com/maps?q=" +
+        clienteLat +
+        "," +
         clienteLon;
 
 
-      estado.className="ok";
+      estado.className = "ok";
 
 
-      estado.innerHTML=
-        "✅ <b>Ubicación obtenida correctamente.</b><br>"+
-        "La ubicación será incluida en tu pedido.";
+      estado.innerHTML =
+        "✅ <b>Ubicación obtenida correctamente.</b><br>" +
+        "Tu ubicación se incluirá en el pedido.";
 
 
-      if(costoEnvio===null){
+      if(costoEnvio === null){
 
-        resultado.innerHTML=`
+        resultado.innerHTML = `
 
           <div class="warn">
 
@@ -1196,8 +1777,12 @@ function obtenerUbicacion(){
 
             <br><br>
 
-            ⚠️ El domicilio supera los 20 km.
-            El costo de envío deberá confirmarse.
+            ⚠️ La distancia supera los
+            20 km.
+
+            <br><br>
+
+            El costo de envío deberá confirmarse por WhatsApp.
 
             <a
               class="mapLink"
@@ -1214,7 +1799,7 @@ function obtenerUbicacion(){
 
       }else{
 
-        resultado.innerHTML=`
+        resultado.innerHTML = `
 
           <div class="locationBox">
 
@@ -1250,24 +1835,346 @@ function obtenerUbicacion(){
 
     function(error){
 
-      estado.className="warn";
+      estado.className = "warn";
 
 
-      if(error.code===1){
+      if(error.code === 1){
 
-        estado.innerHTML=
-          "⚠️ No se permitió el acceso a la ubicación. Activa el permiso para este sitio.";
+        estado.innerHTML =
+          "⚠️ No se permitió el acceso a la ubicación. Activa el permiso de ubicación del navegador.";
 
-      }else if(error.code===2){
+      }
 
-        estado.innerHTML=
+      else if(error.code === 2){
+
+        estado.innerHTML =
           "⚠️ No fue posible determinar tu ubicación. Intenta nuevamente.";
 
-      }else if(error.code===3){
+      }
 
-        estado.innerHTML=
+      else if(error.code === 3){
+
+        estado.innerHTML =
           "⚠️ La ubicación tardó demasiado. Intenta nuevamente.";
 
-      }else{
+      }
 
-        es
+      else{
+
+        estado.innerHTML =
+          "⚠️ No se pudo obtener tu ubicación.";
+
+      }
+
+    },
+
+
+    {
+
+      enableHighAccuracy:true,
+
+      timeout:15000,
+
+      maximumAge:60000
+
+    }
+
+  );
+
+}
+
+
+/* ==================================================
+   ENVIAR PEDIDO A WHATSAPP
+================================================== */
+
+function enviarWhatsApp(){
+
+  if(!carrito.length){
+
+    alert(
+      "Agrega al menos un producto al carrito."
+    );
+
+    return;
+
+  }
+
+
+  const nombre =
+    document.getElementById(
+      "nombre"
+    ).value.trim();
+
+
+  const direccion =
+    document.getElementById(
+      "direccion"
+    ).value.trim();
+
+
+  const notas =
+    document.getElementById(
+      "notas"
+    ).value.trim();
+
+
+  if(!nombre){
+
+    alert(
+      "Escribe tu nombre."
+    );
+
+    return;
+
+  }
+
+
+  if(!direccion){
+
+    alert(
+      "Escribe la dirección de entrega."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    clienteLat === null ||
+    clienteLon === null
+  ){
+
+    const continuar =
+      confirm(
+        "No has compartido tu ubicación GPS. ¿Quieres enviar el pedido sin ubicación?"
+      );
+
+
+    if(!continuar){
+
+      return;
+
+    }
+
+  }
+
+
+  const subtotal =
+    obtenerSubtotal();
+
+
+  let mensaje =
+`🌮 *PEDIDO AUTENTITAKO*
+
+👤 *CLIENTE:*
+${nombre}
+
+📍 *DIRECCIÓN:*
+${direccion}
+
+🛒 *PEDIDO:*
+`;
+
+
+  carrito.forEach(
+    function(producto){
+
+      mensaje +=
+
+`• ${producto.nombre} x${producto.cantidad} = $${producto.precio * producto.cantidad}
+`;
+
+    }
+  );
+
+
+  mensaje +=
+
+`
+💵 *SUBTOTAL:*
+$${subtotal}
+`;
+
+
+  /* ======================================
+     UBICACIÓN
+  ====================================== */
+
+  if(
+    clienteLat !== null &&
+    clienteLon !== null
+  ){
+
+    const mapa =
+      "https://www.google.com/maps?q=" +
+      clienteLat +
+      "," +
+      clienteLon;
+
+
+    mensaje +=
+
+`
+📍 *UBICACIÓN GPS DEL CLIENTE:*
+
+Latitud:
+${clienteLat}
+
+Longitud:
+${clienteLon}
+
+🗺️ *GOOGLE MAPS:*
+${mapa}
+`;
+
+  }else{
+
+    mensaje +=
+
+`
+📍 *UBICACIÓN GPS:*
+No compartida.
+`;
+
+  }
+
+
+  /* ======================================
+     ENVÍO
+  ====================================== */
+
+  if(
+    costoEnvio !== null &&
+    costoEnvio > 0 &&
+    distanciaKm !== null
+  ){
+
+    mensaje +=
+
+`
+📏 *DISTANCIA APROXIMADA:*
+${distanciaKm.toFixed(1)} km
+
+🚚 *COSTO DE ENVÍO:*
+$${costoEnvio}
+
+💰 *TOTAL:*
+$${subtotal + costoEnvio}
+`;
+
+  }else{
+
+    mensaje +=
+
+`
+🚚 *COSTO DE ENVÍO:*
+Por confirmar
+
+💰 *TOTAL SIN ENVÍO:*
+$${subtotal}
+`;
+
+  }
+
+
+  if(notas){
+
+    mensaje +=
+
+`
+📝 *NOTAS:*
+${notas}
+`;
+
+  }
+
+
+  mensaje +=
+
+`
+🔥 ¡Gracias por tu pedido!
+`;
+
+
+  const url =
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    encodeURIComponent(mensaje);
+
+
+  window.location.href = url;
+
+}
+
+
+/* ==================================================
+   VACIAR CARRITO
+================================================== */
+
+function vaciarCarrito(){
+
+  if(!carrito.length){
+
+    return;
+
+  }
+
+
+  const confirmar =
+    confirm(
+      "¿Seguro que quieres vaciar el carrito?"
+    );
+
+
+  if(!confirmar){
+
+    return;
+
+  }
+
+
+  carrito = [];
+
+  costoEnvio = 0;
+
+  distanciaKm = null;
+
+  clienteLat = null;
+
+  clienteLon = null;
+
+
+  document.getElementById(
+    "envioResultado"
+  ).innerHTML = "";
+
+
+  document.getElementById(
+    "ubicacionEstado"
+  ).className = "small";
+
+
+  document.getElementById(
+    "ubicacionEstado"
+  ).textContent =
+    "Tu ubicación se utiliza para calcular el envío y enviarla al repartidor junto con el pedido.";
+
+
+  actualizarCarrito();
+
+}
+
+
+/* ==================================================
+   INICIO
+================================================== */
+
+actualizarCarrito();
+
+</script>
+
+</body>
+</html>
